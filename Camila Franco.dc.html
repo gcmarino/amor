@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f6f1ea;color:#2a2420;font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#a4482f;text-decoration:none}
+a:hover{color:#2a2420}
+</style>
+</helmet>
+<main style="max-width:1080px;margin:0 auto;padding:40px 28px 72px;display:flex;flex-direction:column;gap:96px">
+  <header style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:14px;color:#6b5f56">
+    <span style="font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#2a2420">Camila Franco R</span>
+    <nav style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="#experiencia" style="color:#6b5f56">Experiencia</a>
+      <a href="#formacion" style="color:#6b5f56">Formación</a>
+      <a href="#habilidades" style="color:#6b5f56">Habilidades</a>
+    </nav>
+  </header>
+
+  <section data-screen-label="Inicio" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:56px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <p style="margin:0;font-size:14px;letter-spacing:0.08em;text-transform:uppercase;color:#a4482f;font-weight:600">Santa Cruz de la Sierra, Bolivia</p>
+      <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(56px,9vw,104px);line-height:0.95;letter-spacing:-0.01em">Camila<br><em style="color:#a4482f">Franco R</em></h1>
+      <p style="margin:0;font-size:20px;line-height:1.5;max-width:30ch;text-wrap:pretty">Licenciada en Administración General. Administradora de datos en Makro Parque.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/camila-franco-r-323008225/" target="_blank" style="display:inline-flex;align-items:center;padding:14px 24px;border-radius:999px;background:#2a2420;color:#f6f1ea;font-weight:500;font-size:15px" style-hover="background:#a4482f;color:#f6f1ea">Ver perfil en LinkedIn</a>
+        <a href="#experiencia" style="display:inline-flex;align-items:center;padding:14px 24px;border-radius:999px;border:1px solid #2a2420;color:#2a2420;font-weight:500;font-size:15px" style-hover="background:#2a2420;color:#f6f1ea">Experiencia</a>
+      </div>
+    </div>
+    <div style="position:relative;justify-self:center;width:100%;max-width:420px">
+      <div style="position:absolute;inset:24px -24px -24px 24px;border-radius:220px 220px 24px 24px;background:#e9c9b4"></div>
+      <img src="assets/camila.png" alt="Camila Franco R" style="position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:220px 220px 24px 24px">
+    </div>
+  </section>
+
+  <section id="experiencia" data-screen-label="Experiencia" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;border-top:1px solid #d9cdc1;padding-top:40px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:48px;line-height:1">Experiencia</h2>
+      <p style="margin:0;color:#6b5f56;font-size:15px">Makro Parque · Tiempo completo · 4 años 8 meses<br>Santa Cruz, Bolivia</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:40px;grid-column:span 2;min-width:0">
+      <article style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline">
+          <h3 style="margin:0;font-size:24px;font-weight:600">Administrador de datos</h3>
+          <span style="font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px;background:#e9c9b4;color:#2a2420">Actualidad</span>
+        </div>
+        <p style="margin:0;color:#6b5f56;font-size:15px">Mar 2023 – Actualidad · 3 años 8 meses · Presencial</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Bases de datos</span>
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Administración</span>
+        </div>
+      </article>
+      <article style="display:flex;flex-direction:column;gap:12px;border-top:1px solid #d9cdc1;padding-top:40px">
+        <h3 style="margin:0;font-size:24px;font-weight:600">Auxiliar contable</h3>
+        <p style="margin:0;color:#6b5f56;font-size:15px">Mar 2022 – Dic 2024 · 2 años 10 meses</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Resolución de problemas</span>
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Cierre de ejercicio</span>
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Depreciación</span>
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Contabilidad</span>
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Microsoft Excel</span>
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Impuestos</span>
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Activos fijos</span>
+          <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Amortización de activos fijos</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="formacion" data-screen-label="Formación" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:40px;border-top:1px solid #d9cdc1;padding-top:40px">
+    <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:48px;line-height:1">Formación</h2>
+    <article style="display:flex;flex-direction:column;gap:12px;grid-column:span 2;min-width:0">
+      <h3 style="margin:0;font-size:24px;font-weight:600">Universidad Tecnológica Privada de Santa Cruz (UTEPSA)</h3>
+      <p style="margin:0;font-size:17px">Licenciatura, Business Administration and Management, General</p>
+      <p style="margin:0;color:#6b5f56;font-size:15px">Feb 2019 – Dic 2022</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Microsoft Excel</span>
+        <span style="font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid #d9cdc1">Liderazgo de equipos</span>
+      </div>
+    </article>
+  </section>
+
+  <section id="habilidades" data-screen-label="Habilidades" style="display:flex;flex-direction:column;gap:32px;background:#2a2420;color:#f6f1ea;border-radius:24px;padding:clamp(28px,5vw,56px)">
+    <h2 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:48px;line-height:1">Habilidades</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0 32px">
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Bases de datos</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Administración</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Contabilidad</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Cierre de ejercicio</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Impuestos</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Activos fijos</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Depreciación</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Amortización de activos fijos</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Microsoft Excel</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Resolución de problemas</span>
+      <span style="padding:14px 0;border-bottom:1px solid #4a403a;font-size:17px">Liderazgo de equipos</span>
+    </div>
+  </section>
+
+  <footer style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:#6b5f56">
+    <span>Camila Franco R · Santa Cruz de la Sierra, Bolivia</span>
+    <a href="https://www.linkedin.com/in/camila-franco-r-323008225/" target="_blank">LinkedIn</a>
+  </footer>
+</main>
+</x-dc>
+</body>
+</html>
