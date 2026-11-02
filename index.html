@@ -244,6 +244,10 @@ section{scroll-margin-top:24px}
 }
 #n8n-chat .chat-heading h1{font-family:'Instrument Serif',serif;font-weight:400}
 #n8n-chat .chat-window-toggle{box-shadow:0 10px 30px rgba(164,72,47,.35)}
+/* bubble + window on the left (Netlify badge sits bottom-right) */
+#n8n-chat .chat-window-wrapper{left:var(--chat--window--right,1rem);right:auto;align-items:flex-start}
+#n8n-chat .chat-window-wrapper .chat-window{transform-origin:0 100%}
+#n8n-chat .chat-window-wrapper .chat-window-toggle{margin-left:0;margin-right:auto}
 
 @media (max-width:860px){
   .ai{padding-top:90px}
