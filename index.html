@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Camila Franco Rojas · Datos Maestros y Planogramas</title>
+<meta name="description" content="Camila Franco Rojas — Licenciada en Administración General. Analista de Datos Maestros y Planogramas en Makro Parque, Santa Cruz de la Sierra, Bolivia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f1ea; --ink:#2a2420; --accent:#a4482f; --peach:#e9c9b4; --muted:#6b5f56;
+  --line:#d9cdc1; --mustard:#d4a24c; --dark-line:#4a403a; --cream:#fffaf3;
+  --serif:'Instrument Serif',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--ink)}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.serif{font-family:var(--serif);font-weight:400}
+.eyebrow{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,64px);line-height:1;letter-spacing:-.01em}
+.muted{color:var(--muted)}
+section{scroll-margin-top:24px}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:28px 0;font-size:14px;color:var(--muted)}
+.brand{font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.top nav{display:flex;gap:22px;flex-wrap:wrap}
+.top nav a{color:var(--muted)}
+.top nav a:hover{color:var(--accent)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:500;font-size:15px;transition:background .25s,color .25s;will-change:transform}
+.btn-dark{background:var(--ink);color:var(--bg)}
+.btn-dark:hover{background:var(--accent);color:var(--bg)}
+.btn-line{border:1px solid var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--bg)}
+.chip{font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;align-items:center;min-height:calc(100vh - 90px);padding-bottom:40px}
+.hero-text{display:flex;flex-direction:column;gap:26px}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(60px,9vw,118px);line-height:.92;letter-spacing:-.015em}
+.hero h1 em{color:var(--accent)}
+.hero .lead{font-size:20px;line-height:1.5;max-width:32ch;text-wrap:pretty}
+.hero .tags{display:flex;gap:8px;flex-wrap:wrap}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-visual{position:relative;height:min(80vh,720px);min-height:460px}
+.hero-visual canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:pointer;touch-action:pan-y}
+.hero-status{position:absolute;top:8px;left:8px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:var(--cream);border:1px solid var(--line);box-shadow:0 6px 20px rgba(42,36,32,.06);pointer-events:none}
+.hero-status i{width:8px;height:8px;border-radius:50%;background:var(--mustard);transition:background .3s}
+.hero-status.done i{background:#6f9a5b}
+.hero-hint{position:absolute;bottom:4px;right:8px;font-size:13px;color:var(--muted);pointer-events:none}
+.hero-fallback{display:none;position:absolute;inset:0;margin:auto;width:min(100%,400px);aspect-ratio:4/5;object-fit:cover;border-radius:220px 220px 24px 24px}
+.no-webgl .hero-fallback{display:block}
+.no-webgl canvas,.no-webgl .hero-hint,.no-webgl .hero-status{display:none}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center;padding:110px 0 40px;border-top:1px solid var(--line)}
+.portrait{position:relative;max-width:400px;width:calc(100% - 24px);justify-self:center;margin-right:24px}
+.portrait::before{content:"";position:absolute;inset:24px -24px -24px 24px;border-radius:220px 220px 24px 24px;background:var(--peach)}
+.portrait img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:220px 220px 24px 24px}
+.about-body{display:flex;flex-direction:column;gap:28px}
+.about-body .big{font-family:var(--serif);font-size:clamp(26px,3.2vw,36px);line-height:1.2;text-wrap:pretty}
+.about-body .big em{color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.stat{border-top:1px solid var(--line);padding-top:14px}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,60px);line-height:1;color:var(--accent)}
+.stat span{font-size:14px;color:var(--muted)}
+.langs{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:15px}
+
+/* pareto */
+.pareto{position:relative;height:340vh;background:var(--ink);color:var(--bg);margin-top:110px}
+.pareto-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
+.pareto canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.pareto-copy{position:absolute;top:clamp(28px,7vh,72px);left:max(28px,calc((100vw - 1180px)/2 + 28px));max-width:400px;display:flex;flex-direction:column;gap:18px;z-index:2;pointer-events:none}
+.pareto-copy .eyebrow{color:var(--peach)}
+.pareto-copy .h2{color:var(--bg)}
+.steps{display:flex;flex-direction:column;gap:12px;margin-top:6px}
+.step{display:flex;gap:14px;opacity:.28;transition:opacity .4s,transform .4s}
+.step.on{opacity:1;transform:translateX(6px)}
+.step b{font-family:var(--serif);font-weight:400;font-size:22px;color:var(--peach);min-width:28px}
+.step p{font-size:16px;line-height:1.45}
+.step strong{display:block;font-weight:600}
+.pareto-progress{position:absolute;left:0;bottom:0;height:3px;background:var(--accent);width:0;z-index:2}
+.p-label{position:absolute;left:0;top:0;font-size:13px;font-weight:600;padding:6px 12px;border-radius:999px;white-space:nowrap;opacity:0;pointer-events:none;z-index:2}
+.p-label.l80{background:var(--mustard);color:var(--ink)}
+.p-label.ltop{background:var(--accent);color:var(--bg)}
+.p-label.lcurve{background:var(--bg);color:var(--ink)}
+.reduced .pareto{height:auto}
+.reduced .pareto-sticky{position:relative;height:100vh}
+
+/* experience */
+.exp{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:48px;padding:120px 0 40px}
+.exp-head{display:flex;flex-direction:column;gap:12px;align-self:start;position:sticky;top:32px}
+.timeline{position:relative;display:flex;flex-direction:column;gap:44px;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--line)}
+.timeline .fill{position:absolute;left:6px;top:8px;width:1px;background:var(--accent);height:0;transform-origin:top}
+.job{position:relative;display:flex;flex-direction:column;gap:10px}
+.job::before{content:"";position:absolute;left:-34px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.job.now::before{background:var(--accent);box-shadow:0 0 0 6px rgba(164,72,47,.15)}
+.job-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.job h3{font-size:23px;font-weight:600;line-height:1.25}
+.job .co{font-size:15px;color:var(--muted)}
+.pill{font-size:13px;font-weight:600;padding:4px 12px;border-radius:999px;background:var(--peach);color:var(--ink);white-space:nowrap}
+.job ul{margin:4px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:16px;line-height:1.5;color:#3d3530}
+.job li::marker{color:var(--accent)}
+
+/* skills */
+.skills{background:var(--ink);color:var(--bg);border-radius:28px;margin-top:100px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:24px;overflow:hidden}
+.skills-side{display:flex;flex-direction:column;gap:24px;align-self:center;z-index:1}
+.skills .eyebrow{color:var(--peach)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:#cdbfb2}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:10px;height:10px;border-radius:50%}
+.panel{border:1px solid var(--dark-line);border-radius:18px;padding:22px;min-height:168px;display:flex;flex-direction:column;gap:10px;background:rgba(255,250,243,.03)}
+.panel small{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--peach)}
+.panel h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.1}
+.panel p{font-size:16px;line-height:1.5;color:#e4d8cc}
+.stage{position:relative;min-height:560px;touch-action:pan-y}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab}
+.stage canvas:active{cursor:grabbing}
+.labels{position:absolute;inset:0;pointer-events:none}
+.node{position:absolute;left:0;top:0;transform-origin:left center;pointer-events:auto;font:inherit;font-size:13px;font-weight:500;color:var(--bg);background:rgba(42,36,32,.72);border:1px solid var(--dark-line);padding:5px 11px;border-radius:999px;white-space:nowrap;cursor:pointer;transition:background .2s,border-color .2s,color .2s;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.node.n-apt{border-color:rgba(212,162,76,.5)}
+.node.center{font-family:var(--serif);font-size:20px;font-weight:400;background:var(--accent);border-color:var(--accent);padding:4px 14px}
+.node.active,.node:hover,.node:focus-visible{background:var(--bg);color:var(--ink);border-color:var(--bg);outline:none}
+.stage.static .labels{position:relative;display:flex;flex-wrap:wrap;gap:8px;padding-top:12px}
+.stage.static .node{position:static;transform:none!important;opacity:1!important}
+.stage.static canvas{display:none}
+.stage.static{min-height:0}
+
+/* aptitudes */
+.apts{padding:120px 0 40px;display:flex;flex-direction:column;gap:40px}
+.apt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.apt{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:12px;background:var(--cream);transition:transform .3s,box-shadow .3s,border-color .3s}
+.apt:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(42,36,32,.08);border-color:var(--peach)}
+.apt b{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;color:var(--accent)}
+.apt h3{font-size:18px;font-weight:600;line-height:1.3}
+.apt p{font-size:15px;line-height:1.5;color:var(--muted)}
+
+/* education */
+.edu{padding:110px 0 40px;display:flex;flex-direction:column;gap:40px;border-top:1px solid var(--line);margin-top:80px}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px}
+.card.feature{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.card.feature .muted{color:#cdbfb2}
+.card h3{font-size:19px;font-weight:600;line-height:1.3}
+.card .when{font-size:14px}
+.card .pill{align-self:flex-start;margin-top:6px}
+
+/* contact */
+.contact{margin:110px 0 0;padding:72px 0 40px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:28px}
+.contact .big{font-family:var(--serif);font-size:clamp(56px,10vw,128px);line-height:.95}
+.contact .big em{color:var(--accent)}
+.contact .mail{font-size:clamp(20px,3vw,30px);border-bottom:1px solid currentColor;align-self:flex-start;word-break:break-all}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted);padding:40px 0 48px}
+
+/* IA aplicada */
+.ai{padding:120px 0 20px;display:flex;flex-direction:column;gap:44px}
+.ai-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end}
+.ai-head p.muted{font-size:17px;line-height:1.6;max-width:52ch}
+.flow{position:relative;border:1px solid var(--line);border-radius:24px;padding:56px 32px 28px;background:var(--cream);background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px;overflow:hidden}
+.flow-status{position:absolute;top:16px;left:20px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted)}
+.flow-status i{width:8px;height:8px;border-radius:50%;background:var(--mustard);transition:background .3s}
+.flow.done .flow-status i{background:#6f9a5b}
+.flow-tag{position:absolute;top:14px;right:20px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--bg)}
+.flow-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;align-items:start}
+.fnode{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.fnode .box{position:relative;width:84px;height:84px;border-radius:20px;background:var(--bg);border:2px solid var(--line);display:grid;place-items:center;color:var(--ink);transition:border-color .3s,box-shadow .3s,transform .3s,background .3s;z-index:1}
+.fnode .box svg{width:34px;height:34px}
+.fnode .box::before,.fnode .box::after{content:"";position:absolute;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--bg);border:2px solid var(--line)}
+.fnode .box::before{left:-7px}
+.fnode .box::after{right:-7px}
+.fnode:first-child .box::before,.fnode:last-child .box::after{display:none}
+.fnode .txt{display:flex;flex-direction:column;gap:2px}
+.fnode b{font-size:15px;font-weight:600}
+.fnode small{font-size:13px;color:var(--muted)}
+.fnode.run .box{border-color:var(--accent);box-shadow:0 0 0 6px rgba(164,72,47,.14);transform:translateY(-3px)}
+.fnode.ok .box{border-color:#6f9a5b}
+.fnode.ai-node .box{background:var(--ink);color:var(--peach);border-color:var(--ink)}
+.fnode .check{position:absolute;top:-8px;right:-8px;width:22px;height:22px;border-radius:50%;background:#6f9a5b;color:#fff;font-size:12px;display:grid;place-items:center;opacity:0;transform:scale(.4);transition:opacity .25s,transform .25s;z-index:2}
+.fnode.ok .check{opacity:1;transform:scale(1)}
+.fnode:not(:last-child)::after{content:"";position:absolute;top:42px;left:calc(50% + 50px);right:calc(-50% + 50px);height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 11px)}
+.fnode .dot{position:absolute;top:37px;left:calc(50% + 50px);width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent);opacity:0;z-index:2}
+.fnode.send .dot{animation:flowdot .7s ease-in-out forwards}
+@keyframes flowdot{0%{opacity:1;left:calc(50% + 50px)}100%{opacity:1;left:calc(150% - 62px)}}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.ai-card{border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.ai-card .ic{width:44px;height:44px;border-radius:12px;background:var(--peach);display:grid;place-items:center;color:var(--accent)}
+.ai-card .ic svg{width:22px;height:22px}
+.ai-card h3{font-size:19px;font-weight:600}
+.ai-card p{font-size:15px;line-height:1.55;color:var(--muted)}
+.ai-card.dark{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ai-card.dark p{color:#cdbfb2}
+.ai-card.dark .ic{background:var(--accent);color:var(--bg)}
+.ai-card .btn{align-self:flex-start;margin-top:auto;background:var(--bg);color:var(--ink);border:0;cursor:pointer;font-family:inherit}
+.ai-card .btn:hover{background:var(--accent);color:var(--bg)}
+
+/* n8n chat theme (on #n8n-chat so it beats the widget's own :root defaults) */
+#n8n-chat{
+  --chat--color--primary:#a4482f; --chat--color--primary-shade-50:#8f3d27; --chat--color--primary--shade-100:#7a3421;
+  --chat--color--secondary:#2a2420; --chat--color-secondary-shade-50:#1f1a17;
+  --chat--color-white:#fffaf3; --chat--color-light:#f6f1ea; --chat--color-light-shade-50:#efe5d8; --chat--color-light-shade-100:#e2d5c7;
+  --chat--color-medium:#d9cdc1; --chat--color-dark:#2a2420; --chat--color-typing:#6b5f56;
+  --chat--font-family:'DM Sans',system-ui,sans-serif;
+  --chat--border-radius:16px; --chat--window--border-radius:20px; --chat--window--border:1px solid #d9cdc1;
+  --chat--header--background:#2a2420; --chat--header--color:#f6f1ea; --chat--heading--font-size:24px;
+  --chat--message--bot--background:#fffaf3; --chat--message--bot--color:#2a2420; --chat--message--bot--border:1px solid #e2d5c7;
+  --chat--message--user--background:#a4482f; --chat--message--user--color:#fffaf3;
+  --chat--toggle--background:#a4482f; --chat--toggle--hover--background:#2a2420; --chat--toggle--active--background:#2a2420; --chat--toggle--color:#fffaf3;
+  --chat--toggle--size:60px;
+  --chat--window--z-index:1000;
+}
+#n8n-chat .chat-heading h1{font-family:'Instrument Serif',serif;font-weight:400}
+#n8n-chat .chat-window-toggle{box-shadow:0 10px 30px rgba(164,72,47,.35)}
+
+@media (max-width:860px){
+  .ai{padding-top:90px}
+  .ai-head{grid-template-columns:1fr}
+  .flow{padding:56px 20px 24px}
+  .flow-row{grid-template-columns:1fr;gap:34px;justify-items:center}
+  .fnode{flex-direction:row;text-align:left;gap:16px;width:100%;max-width:280px}
+  .fnode .box{width:64px;height:64px;flex:none}
+  .fnode .box svg{width:26px;height:26px}
+  .fnode .box::before,.fnode .box::after{display:none}
+  .fnode small{margin-top:0}
+  .fnode .txt{display:flex;flex-direction:column;gap:2px}
+  .fnode:not(:last-child)::after{top:68px;left:31px;right:auto;width:2px;height:28px;background:repeating-linear-gradient(180deg,var(--line) 0 6px,transparent 6px 11px)}
+  .fnode .dot{top:62px;left:26px}
+  @keyframes flowdot{0%{opacity:1;top:62px}100%{opacity:1;top:88px}}
+
+  .hero{grid-template-columns:1fr;min-height:0;gap:8px}
+  .hero-visual{height:62vh;min-height:400px}
+  .about{grid-template-columns:1fr;gap:56px;padding-top:80px}
+  .exp{grid-template-columns:1fr;gap:32px;padding-top:90px}
+  .exp-head{position:static}
+  .skills{grid-template-columns:1fr;margin-top:70px}
+  .stage{min-height:460px}
+  .pareto-copy{left:20px;right:20px;max-width:none;gap:12px}
+  .pareto-copy .h2{font-size:36px}
+  .step p{font-size:14px}
+  .step:not(.on){display:none}
+  .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+}
+@media (max-width:520px){
+  .wrap{padding:0 16px}
+  .top nav{gap:14px}
+}
+</style>
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat@1.43.1/dist/style.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <span class="brand">Camila Franco R</span>
+    <nav>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#ia">IA</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#formacion">Formación</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- HERO: planograma vivo -->
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <p class="eyebrow" data-intro>Santa Cruz de la Sierra, Bolivia</p>
+      <h1 data-intro>Camila<br><em>Franco Rojas</em></h1>
+      <p class="lead" data-intro>Trabajo en Makro Parque como analista de datos maestros y planogramas. Mantengo el catálogo en orden y armo los planogramas de las góndolas.</p>
+      <div class="tags" data-intro>
+        <span class="chip">Datos maestros</span>
+        <span class="chip">Planogramas</span>
+        <span class="chip">Category Management</span>
+        <span class="chip">Compras</span>
+        <span class="chip">IA y automatización</span>
+      </div>
+      <div class="ctas" data-intro>
+        <a class="btn btn-dark" data-magnetic href="https://www.linkedin.com/in/camila-franco-r-323008225/" target="_blank" rel="noopener">Ver perfil en LinkedIn</a>
+        <a class="btn btn-line" data-magnetic href="#contacto">Contactar</a>
+      </div>
+    </div>
+    <div class="hero-visual" id="hero-visual">
+      <canvas id="hero-canvas" aria-label="Animación: productos desordenados que se acomodan solos en una góndola"></canvas>
+      <img class="hero-fallback" src="assets/camila.png" alt="Camila Franco Rojas">
+      <div class="hero-status" id="hero-status"><i></i><span>Ordenando surtido…</span></div>
+      <p class="hero-hint">Toca la góndola para desordenarla ↺</p>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section class="about" id="sobre-mi">
+    <div class="portrait" data-reveal>
+      <img src="assets/camila.png" alt="Retrato de Camila Franco Rojas">
+    </div>
+    <div class="about-body">
+      <p class="eyebrow" data-reveal>Sobre mí</p>
+      <p class="big" data-reveal>Soy licenciada en Administración General. Empecé en contabilidad y hoy trabajo con <em>datos maestros, catálogos y planogramas</em> en retail.</p>
+      <p class="muted" data-reveal style="font-size:17px;line-height:1.6;max-width:58ch">Gran parte de mi trabajo es revisar información: qué artículos rotan, cuáles faltan y cuáles están mal cargados en el sistema. Con eso se arma el surtido y se define cómo se exhibe cada categoría. También uso IA y n8n para automatizar tareas repetitivas y clasificar artículos del catálogo.</p>
+      <div class="stats" data-reveal>
+        <div class="stat"><b data-count="5" data-suffix="+">5+</b><span>años de experiencia</span></div>
+        <div class="stat"><b data-count="4">4</b><span>roles en Makro Parque</span></div>
+        <div class="stat"><b data-count="57">57</b><span>horas en Excel y Power BI</span></div>
+      </div>
+      <div class="langs" data-reveal>
+        <span class="muted">Idiomas</span>
+        <span class="chip">Español · nativo</span>
+        <span class="chip">Inglés · intermedio</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- PARETO: del dato a la decisión -->
+<section class="pareto" id="pareto">
+  <div class="pareto-sticky">
+    <canvas id="pareto-canvas" aria-hidden="true"></canvas>
+    <div class="pareto-copy">
+      <p class="eyebrow">Cómo trabajo</p>
+      <h2 class="h2">Del dato<br>a la decisión</h2>
+      <div class="steps">
+        <div class="step on" data-step="0"><b>01</b><p><strong>Primero, el desorden.</strong>Altas, bajas, quiebres de stock y artículos mal clasificados, cada cosa en un lugar distinto.</p></div>
+        <div class="step" data-step="1"><b>02</b><p><strong>Después, un catálogo en orden.</strong>Cada artículo bien cargado y clasificado, para que compras, logística y ventas trabajen con los mismos datos.</p></div>
+        <div class="step" data-step="2"><b>03</b><p><strong>Recién ahí, el Pareto.</strong>Casi siempre, unos pocos artículos explican la mayor parte del resultado. Con eso se decide qué surtir, cuánto exhibir y qué reponer primero.</p></div>
+      </div>
+    </div>
+    <span class="p-label l80" id="lab80">80% del resultado</span>
+    <span class="p-label ltop" id="labtop">20% de los artículos</span>
+    <span class="p-label lcurve" id="labcurve">Acumulado</span>
+    <div class="pareto-progress" id="pareto-progress"></div>
+  </div>
+</section>
+
+<div class="wrap">
+  <!-- EXPERIENCIA -->
+  <section class="exp" id="experiencia">
+    <div class="exp-head">
+      <p class="eyebrow" data-reveal>Trayectoria</p>
+      <h2 class="h2" data-reveal>Experiencia</h2>
+      <p class="muted" data-reveal style="font-size:16px;line-height:1.5">Empecé en contabilidad y de ahí pasé a catálogo, compras y datos maestros. Solo en Makro Parque tuve cuatro puestos distintos.</p>
+    </div>
+    <div class="timeline" id="timeline">
+      <div class="fill" id="timeline-fill"></div>
+
+      <article class="job now" data-reveal>
+        <div class="job-top"><h3>Analista de Datos Maestros y Planogramas</h3><span class="pill">2026 – Actualidad</span></div>
+        <p class="co">Comercializadora Retail Lider S.A. (Makro Parque)</p>
+        <ul>
+          <li>Mantengo al día los datos maestros y el catálogo estratégico, para que cada artículo esté bien clasificado y disponible.</li>
+          <li>Doy de alta y de baja artículos, habilito SKU nuevos y sigo los que todavía faltan en el catálogo.</li>
+          <li>Analizo disponibilidad, quiebres, rotación y Pareto. Ese análisis se usa para decidir surtido y abastecimiento.</li>
+          <li>Armo los planogramas: ubico cada SKU según rotación, demanda y criterios de Category Management, y defino exhibiciones mínimas y máximas según EDD, días de cobertura y capacidad de la góndola.</li>
+          <li>Preparo reportes de Pareto, disponibilidad e indicadores, y coordino con proveedores y con las áreas comercial, de abastecimiento y de logística.</li>
+          <li>Cuando un artículo tiene problemas de codificación, facturación o parametrización, hago el seguimiento hasta que se puede vender sin problemas.</li>
+        </ul>
+      </article>
+
+      <article class="job" data-reveal>
+        <div class="job-top"><h3>Analista de Compras – Perecederos</h3><span class="pill">Mar 2026 – May 2026</span></div>
+        <p class="co">Comercializadora Retail Lider S.A. (Makro Parque)</p>
+        <ul>
+          <li>Hacía las compras de categorías perecederas mirando demanda, rotación, disponibilidad y días de cobertura.</li>
+          <li>Revisaba qué había que reponer y seguía cada pedido para que no se cortara el stock.</li>
+          <li>Coordinaba entregas e incidencias con proveedores y con las áreas internas.</li>
+        </ul>
+      </article>
+
+      <article class="job" data-reveal>
+        <div class="job-top"><h3>Analista de Catálogo</h3><span class="pill">2024</span></div>
+        <p class="co">Comercializadora Retail Lider S.A. (Makro Parque)</p>
+        <ul>
+          <li>Armé y actualicé catálogos físicos y digitales.</li>
+          <li>Centralicé la información de productos para e-commerce, marketplaces y sistemas internos, y revisaba la calidad de los datos para corregir errores.</li>
+          <li>Apoyé en la planificación de categorías, en órdenes de compra y en la relación con proveedores.</li>
+        </ul>
+      </article>
+
+      <article class="job" data-reveal>
+        <div class="job-top"><h3>Auxiliar Contable</h3><span class="pill">2024 – 2025</span></div>
+        <p class="co">Tiendas K1 S.R.L.</p>
+        <ul>
+          <li>Registraba gastos y provisiones bajo el principio de devengado.</li>
+          <li>Preparaba el RCV en el SIAT y apoyaba con declaraciones tributarias, bancarización y rectificaciones.</li>
+          <li>Me encargaba de amortizaciones, arqueos de caja, emisión de cheques y control de activos fijos.</li>
+        </ul>
+      </article>
+
+      <article class="job" data-reveal>
+        <div class="job-top"><h3>Auxiliar Contable</h3><span class="pill">2022 – 2023</span></div>
+        <p class="co">Comercializadora Retail Lider S.A. (Makro Parque)</p>
+        <ul>
+          <li>Revisaba la documentación de recepción y devoluciones de mercadería.</li>
+          <li>Preparaba el RCV en el SIAT y apoyaba con las declaraciones de IVA, IT, RC-IVA y retenciones.</li>
+          <li>Participaba en inventarios y ajustes, conciliaciones bancarias, cuentas por cobrar y por pagar, y en los cierres mensuales y anuales.</li>
+        </ul>
+      </article>
+
+      <article class="job" data-reveal>
+        <div class="job-top"><h3>Administración · Asesora de ventas · Community Manager</h3><span class="pill">2021 – 2022</span></div>
+        <p class="co">Reality Herramientas Creativas S.R.L.</p>
+        <ul>
+          <li>Un poco de todo: llevaba la parte administrativa e impositiva, atendía y asesoraba a clientes y ayudaba con las redes de la empresa.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- IA APLICADA -->
+  <section class="ai" id="ia">
+    <div class="ai-head">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <p class="eyebrow" data-reveal>Inteligencia artificial</p>
+        <h2 class="h2" data-reveal>IA aplicada<br>al retail</h2>
+      </div>
+      <p class="muted" data-reveal>Uso IA y n8n para no hacer a mano lo que se repite todos los días: clasificar artículos, revisar datos, armar reportes. El tiempo que eso me libera lo uso para analizar.</p>
+    </div>
+    <div class="flow" id="flow" data-reveal>
+      <span class="flow-status"><i></i><span id="flow-status">Ejecutando flujo…</span></span>
+      <span class="flow-tag">Flujo n8n</span>
+      <div class="flow-row">
+        <div class="fnode"><div class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span class="check">✓</span></div><span class="dot"></span><div class="txt"><b>Catálogo</b><small>Nuevos SKU</small></div></div>
+        <div class="fnode ai-node"><div class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg><span class="check">✓</span></div><span class="dot"></span><div class="txt"><b>IA clasifica</b><small>Categoría y atributos</small></div></div>
+        <div class="fnode"><div class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span class="check">✓</span></div><span class="dot"></span><div class="txt"><b>Valida datos</b><small>Reglas y duplicados</small></div></div>
+        <div class="fnode"><div class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><span class="check">✓</span></div><span class="dot"></span><div class="txt"><b>Reporte</b><small>Listo y enviado</small></div></div>
+      </div>
+    </div>
+    <div class="ai-grid">
+      <div class="ai-card" data-reveal><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></span><h3>Clasificación con IA</h3><p>Uso IA para clasificar artículos, completar atributos que faltan y encontrar datos que no cuadran en el catálogo.</p></div>
+      <div class="ai-card" data-reveal><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.5 6h3a3 3 0 013 3v0a3 3 0 003 3M7.5 18h3a3 3 0 003-3v0a3 3 0 013-3"/></svg></span><h3>Automatización con n8n</h3><p>Armo flujos que conectan planillas, sistemas y correo, para que reportes y alertas salgan solos en lugar de prepararlos a mano.</p></div>
+      <div class="ai-card dark" data-reveal><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg></span><h3>Asistente IA</h3><p>El chat de esta página funciona con n8n. Puedes preguntarle por mi experiencia, qué sé hacer o cómo contactarme.</p><button class="btn" type="button" id="open-chat" data-magnetic>Abrir el chat</button></div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES: constelación -->
+  <section class="skills" id="habilidades">
+    <div class="skills-side">
+      <p class="eyebrow">Habilidades y aptitudes</p>
+      <h2 class="h2">Todo conectado</h2>
+      <div class="legend">
+        <span><i style="background:#e0805f"></i>Habilidades técnicas</span>
+        <span><i style="background:#d4a24c"></i>Aptitudes</span>
+      </div>
+      <div class="panel" id="skill-panel" aria-live="polite">
+        <small>Explora</small>
+        <h3>Pasa el cursor o toca un nodo</h3>
+        <p>Los nodos naranjas son lo técnico; los dorados, cómo trabajo. Puedes arrastrar para girarla.</p>
+      </div>
+    </div>
+    <div class="stage" id="skills-stage">
+      <canvas id="skills-canvas" aria-hidden="true"></canvas>
+      <div class="labels" id="skills-labels"></div>
+    </div>
+  </section>
+
+  <!-- APTITUDES -->
+  <section class="apts" id="aptitudes">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p class="eyebrow" data-reveal>Aptitudes</p>
+      <h2 class="h2" data-reveal>Cómo trabajo con otros</h2>
+    </div>
+    <div class="apt-grid">
+      <div class="apt" data-reveal><b>01</b><h3>Rápido aprendizaje y adaptabilidad</h3><p>En Makro Parque pasé por contabilidad, catálogo, compras y datos maestros. Cada cambio fue aprender un área nueva.</p></div>
+      <div class="apt" data-reveal><b>02</b><h3>Fiabilidad y compromiso</h3><p>Compras, logística y ventas trabajan con los datos que cargo. Si están mal, se nota en la góndola.</p></div>
+      <div class="apt" data-reveal><b>03</b><h3>Comunicación efectiva</h3><p>Mi trabajo depende de entenderme con proveedores y con las áreas comercial, de abastecimiento y de logística.</p></div>
+      <div class="apt" data-reveal><b>04</b><h3>Trabajo en equipo</h3><p>Casi nada de lo que hago sale de una sola persona: un SKU nuevo pasa por varias áreas antes de llegar a la góndola.</p></div>
+      <div class="apt" data-reveal><b>05</b><h3>Proactividad y organización</h3><p>Prefiero encontrar un error en el catálogo antes de que aparezca en la tienda, y tener claro qué pendiente va primero.</p></div>
+    </div>
+  </section>
+
+  <!-- FORMACIÓN -->
+  <section class="edu" id="formacion">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <p class="eyebrow" data-reveal>Educación</p>
+      <h2 class="h2" data-reveal>Formación</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="card feature" data-reveal>
+        <p class="when muted">2025 – 2026 · UTEPSA</p>
+        <h3>MBA – Dirección de Empresas</h3>
+        <span class="pill">Formación concluida · Tesis en desarrollo</span>
+      </div>
+      <div class="card" data-reveal>
+        <p class="when muted">2019 – 2023 · UTEPSA</p>
+        <h3>Licenciatura en Administración General</h3>
+      </div>
+      <div class="card" data-reveal>
+        <p class="when muted">Cenace – UPSA · 21 horas</p>
+        <h3>Power BI</h3>
+      </div>
+      <div class="card" data-reveal>
+        <p class="when muted">Centro de capacitación Líder · 36 horas</p>
+        <h3>Taller de especialización en Microsoft Excel</h3>
+      </div>
+      <div class="card" data-reveal>
+        <p class="when muted">2018 · Colegio Rio Nuevo</p>
+        <h3>Bachiller en Humanidades</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contact" id="contacto">
+    <p class="eyebrow" data-reveal>Contacto</p>
+    <p class="big" data-reveal>¿Conversamos?<br><em>Escríbeme.</em></p>
+    <a class="mail" data-reveal href="mailto:camilafr650@gmail.com">camilafr650@gmail.com</a>
+    <div class="ctas" data-reveal style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn btn-dark" data-magnetic href="mailto:camilafr650@gmail.com">Escribirme</a>
+      <a class="btn btn-line" data-magnetic href="https://www.linkedin.com/in/camila-franco-r-323008225/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>Camila Franco Rojas · Santa Cruz de la Sierra, Bolivia</span>
+    <a href="#inicio">Volver arriba ↑</a>
+  </footer>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const MOBILE = matchMedia('(max-width: 860px)').matches;
+const gsap = window.gsap;
+const ST = window.ScrollTrigger;
+if (gsap && ST) gsap.registerPlugin(ST);
+if (REDUCE) document.documentElement.classList.add('reduced');
+
+/* ---------- helpers ---------- */
+function makeRenderer(canvas) {
+  const r = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+  r.setPixelRatio(Math.min(window.devicePixelRatio || 1, MOBILE ? 1.5 : 2));
+  r.setClearColor(0x000000, 0);
+  return r;
+}
+function fit(el, renderer, camera, cb) {
+  const run = () => {
+    const w = el.clientWidth, h = el.clientHeight;
+    if (!w || !h) return;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    cb && cb(w, h);
+    camera.updateProjectionMatrix();
+  };
+  new ResizeObserver(run).observe(el);
+  run();
+}
+function loop(el, fn) {
+  let raf = 0, on = false, last = 0;
+  const tick = now => {
+    raf = requestAnimationFrame(tick);
+    const dt = Math.min((now - last) / 1000, 0.05);
+    last = now;
+    fn(dt, now / 1000);
+  };
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting && !on) { on = true; last = performance.now(); raf = requestAnimationFrame(tick); }
+    else if (!e.isIntersecting && on) { on = false; cancelAnimationFrame(raf); }
+  }, { rootMargin: '120px' }).observe(el);
+}
+const pointer = { x: 0, y: 0 };
+addEventListener('pointermove', e => {
+  pointer.x = (e.clientX / innerWidth) * 2 - 1;
+  pointer.y = (e.clientY / innerHeight) * 2 - 1;
+}, { passive: true });
+
+/* ======================================================
+   1. HERO — planograma vivo
+   ====================================================== */
+function initHero() {
+  const box = document.getElementById('hero-visual');
+  const canvas = document.getElementById('hero-canvas');
+  const statusEl = document.getElementById('hero-status');
+  const statusTxt = statusEl.querySelector('span');
+  const renderer = makeRenderer(canvas);
+  renderer.shadowMap.enabled = !MOBILE;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
+  const target = new THREE.Vector3(0, 0.25, 0);
+  const tanHalf = Math.tan(THREE.MathUtils.degToRad(15));
+  fit(box, renderer, camera, (w, h) => {
+    const a = w / h;
+    const dist = Math.max(3.4 / tanHalf, 3.7 / (tanHalf * a)) + 1.2;
+    camera.position.set(0, 1.1, dist);
+    camera.lookAt(target);
+  });
+
+  scene.add(new THREE.HemisphereLight(0xfff6ec, 0xc9a48c, 1.7));
+  const sun = new THREE.DirectionalLight(0xffffff, 2.3);
+  sun.position.set(4, 8, 7);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(1024, 1024);
+  Object.assign(sun.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6, near: 1, far: 30 });
+  sun.shadow.radius = 4;
+  scene.add(sun);
+  const fill = new THREE.DirectionalLight(0xe9c9b4, 0.8);
+  fill.position.set(-6, 2, 4);
+  scene.add(fill);
+
+  const rig = new THREE.Group();
+  scene.add(rig);
+
+  // floor shadow catcher
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.ShadowMaterial({ opacity: 0.12 }));
+  floor.rotation.x = -Math.PI / 2;
+  floor.position.y = -2.4;
+  floor.receiveShadow = true;
+  rig.add(floor);
+
+  // gondola
+  const W = 5.4, D = 1.3, FLOOR = -2.4, TOP = 2.85;
+  const H = TOP - FLOOR;
+  const mInk = new THREE.MeshStandardMaterial({ color: 0x2a2420, roughness: 0.7 });
+  const mBack = new THREE.MeshStandardMaterial({ color: 0xefe5d8, roughness: 0.9 });
+  const mShelf = new THREE.MeshStandardMaterial({ color: 0xfbf7f1, roughness: 0.6 });
+  const mStrip = new THREE.MeshStandardMaterial({ color: 0xe9c9b4, roughness: 0.5 });
+  const part = (geo, mat, x, y, z) => {
+    const m = new THREE.Mesh(geo, mat);
+    m.position.set(x, y, z); m.castShadow = true; m.receiveShadow = true;
+    rig.add(m); return m;
+  };
+  part(new THREE.BoxGeometry(W, H, 0.08), mBack, 0, FLOOR + H / 2, -D / 2);
+  part(new THREE.BoxGeometry(0.12, H, D), mInk, -(W / 2 + 0.06), FLOOR + H / 2, 0);
+  part(new THREE.BoxGeometry(0.12, H, D), mInk, W / 2 + 0.06, FLOOR + H / 2, 0);
+  part(new THREE.BoxGeometry(W, 0.45, D), mInk, 0, FLOOR + 0.225, 0);
+  const shelfYs = [-1.95, -0.75, 0.45, 1.65];
+  shelfYs.forEach((y, i) => {
+    if (i > 0) part(new THREE.BoxGeometry(W, 0.07, D - 0.1), mShelf, 0, y - 0.035, 0.03);
+    part(new THREE.BoxGeometry(W, 0.13, 0.03), mStrip, 0, y - 0.05, D / 2 - 0.02);
+  });
+  // header sign
+  part(new THREE.BoxGeometry(W + 0.24, 0.55, 0.3), mInk, 0, TOP + 0.27, D / 2 - 0.15);
+  const signCanvas = document.createElement('canvas');
+  signCanvas.width = 1024; signCanvas.height = 104;
+  const signTex = new THREE.CanvasTexture(signCanvas);
+  signTex.colorSpace = THREE.SRGBColorSpace;
+  signTex.anisotropy = 4;
+  const drawSign = () => {
+    const c = signCanvas.getContext('2d');
+    c.fillStyle = '#2a2420'; c.fillRect(0, 0, 1024, 104);
+    c.fillStyle = '#a4482f'; c.beginPath(); c.arc(60, 52, 14, 0, Math.PI * 2); c.fill();
+    c.fillStyle = '#f6f1ea'; c.font = '600 46px "DM Sans", sans-serif'; c.textBaseline = 'middle';
+    c.fillText('PLANOGRAMA · GÓNDOLA 01', 92, 54);
+    signTex.needsUpdate = true;
+  };
+  drawSign();
+  document.fonts && document.fonts.ready.then(drawSign);
+  const sign = new THREE.Mesh(new THREE.PlaneGeometry(W, W * 104 / 1024), new THREE.MeshBasicMaterial({ map: signTex }));
+  sign.position.set(0, TOP + 0.27, D / 2 + 0.006);
+  rig.add(sign);
+
+  // product geometries
+  const geoBox = new RoundedBoxGeometry(0.64, 0.8, 0.6, 2, 0.04);
+  const geoCereal = new RoundedBoxGeometry(0.44, 0.9, 0.3, 2, 0.03);
+  const geoCan = new THREE.CylinderGeometry(0.18, 0.18, 0.45, 24);
+  const bottleProfile = [[0, 0], [0.17, 0], [0.17, 0.5], [0.08, 0.68], [0.065, 0.72], [0.065, 0.85], [0, 0.85]]
+    .map(([x, y]) => new THREE.Vector2(x, y));
+  const geoBottle = new THREE.LatheGeometry(bottleProfile, 24).translate(0, -0.425, 0);
+  const geoLabel = new THREE.BoxGeometry(0.46, 0.24, 0.01);
+  const mLabel = new THREE.MeshStandardMaterial({ color: 0xfffaf3, roughness: 0.8 });
+
+  const shelves = [
+    { geo: geoBox, w: 0.64, h: 0.8, d: 0.6, label: true, colors: [[0xa4482f, 3], [0xe9c9b4, 2], [0x2a2420, 2]] },
+    { geo: geoBottle, w: 0.34, h: 0.85, colors: [[0x8a9a7b, 4], [0xd4a24c, 4], [0xc97b63, 4]], rough: 0.25 },
+    { geo: geoCereal, w: 0.44, h: 0.9, d: 0.3, label: true, colors: [[0xd4a24c, 3], [0xa4482f, 4], [0x6f7a52, 3]] },
+    { geo: geoCan, w: 0.36, h: 0.45, colors: [[0x2a2420, 3], [0xe9c9b4, 3], [0x6f7a52, 3], [0xc97b63, 3]], metal: 0.35 },
+  ];
+  const products = [];
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const chaosPos = () => ({ x: rnd(-3.3, 3.3), y: rnd(-1.8, 3.2), z: rnd(-0.4, 2.2), rx: rnd(-3, 3), ry: rnd(-3, 3), rz: rnd(-3, 3) });
+
+  shelves.forEach((s, si) => {
+    const list = s.colors.flatMap(([c, n]) => Array(n).fill(c));
+    const gap = 0.06;
+    const total = list.length * s.w + (list.length - 1) * gap;
+    list.forEach((color, k) => {
+      const mat = new THREE.MeshStandardMaterial({
+        color, roughness: s.rough ?? 0.55, metalness: s.metal ?? 0,
+        emissive: new THREE.Color(color), emissiveIntensity: 0,
+      });
+      const mesh = new THREE.Mesh(s.geo, mat);
+      mesh.castShadow = true; mesh.receiveShadow = true;
+      if (s.label) {
+        const lab = new THREE.Mesh(geoLabel, mLabel);
+        lab.scale.set(s.w / 0.64, 1, 1);
+        lab.position.set(0, -s.h * 0.08, s.d / 2 + 0.006);
+        mesh.add(lab);
+      }
+      const t = { x: -total / 2 + s.w / 2 + k * (s.w + gap), y: shelfYs[si] + s.h / 2 + 0.001, z: 0.12 };
+      const st = REDUCE ? { ...t, rx: 0, ry: 0, rz: 0 } : chaosPos();
+      rig.add(mesh);
+      products.push({ mesh, t, s: st, seed: Math.random() * 10 });
+    });
+  });
+
+  const chaos = { v: REDUCE ? 0 : 1 };
+  let busy = false;
+  const setStatus = (txt, done) => { statusTxt.textContent = txt; statusEl.classList.toggle('done', !!done); };
+
+  function scan() {
+    products.forEach(p => {
+      gsap.fromTo(p.mesh.material, { emissiveIntensity: 0 }, {
+        emissiveIntensity: 0.55, duration: 0.22, yoyo: true, repeat: 1, ease: 'sine.inOut',
+        delay: (p.t.x + 3) * 0.09,
+      });
+    });
+  }
+  function sortAll(delay = 0) {
+    busy = true;
+    setStatus('Ordenando surtido…', false);
+    const tl = gsap.timeline({ delay, onComplete: () => { busy = false; setStatus('Planograma listo', true); scan(); } });
+    tl.to(chaos, { v: 0, duration: 0.9, ease: 'power2.out' }, 0);
+    products.forEach((p, k) => {
+      tl.to(p.s, { x: p.t.x, y: p.t.y, z: p.t.z, rx: 0, ry: 0, rz: 0, duration: 1.05, ease: 'power3.inOut' }, 0.1 + k * 0.03);
+    });
+  }
+  function shuffle() {
+    if (busy || REDUCE) return;
+    busy = true;
+    setStatus('Datos desordenados', false);
+    gsap.to(chaos, { v: 1, duration: 0.6 });
+    products.forEach(p => gsap.to(p.s, { ...chaosPos(), duration: 0.75, ease: 'power2.out' }));
+    sortAll(1.1);
+  }
+  canvas.addEventListener('click', shuffle);
+
+  if (REDUCE) setStatus('Planograma listo', true);
+  else sortAll(0.9);
+
+  let rotY = -0.22, rotX = 0;
+  loop(box, (dt, t) => {
+    rotY += ((-0.22 + pointer.x * 0.28) - rotY) * 0.05;
+    rotX += ((pointer.y * 0.06) - rotX) * 0.05;
+    rig.rotation.y = rotY + (REDUCE ? 0 : Math.sin(t * 0.3) * 0.03);
+    rig.rotation.x = rotX;
+    for (const p of products) {
+      const c = chaos.v;
+      p.mesh.position.set(p.s.x, p.s.y + Math.sin(t * 1.4 + p.seed) * 0.15 * c, p.s.z);
+      p.mesh.rotation.set(p.s.rx + Math.sin(t * 0.7 + p.seed) * 0.4 * c, p.s.ry + t * 0.3 * c, p.s.rz);
+    }
+    renderer.render(scene, camera);
+  });
+}
+
+/* ======================================================
+   2. PARETO — del dato a la decisión (scroll)
+   ====================================================== */
+function initPareto() {
+  const section = document.getElementById('pareto');
+  const sticky = section.querySelector('.pareto-sticky');
+  const canvas = document.getElementById('pareto-canvas');
+  const steps = [...section.querySelectorAll('.step')];
+  const bar = document.getElementById('pareto-progress');
+  const labs = { l80: document.getElementById('lab80'), top: document.getElementById('labtop'), curve: document.getElementById('labcurve') };
+  const renderer = makeRenderer(canvas);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 100);
+  const tanHalf = Math.tan(THREE.MathUtils.degToRad(17.5));
+  const uniforms = { uP: { value: REDUCE ? 2 : 0 }, uT: { value: 0 }, uSize: { value: 0.05 }, uH: { value: 500 } };
+  const group = new THREE.Group();
+  scene.add(group);
+  fit(sticky, renderer, camera, (w, h) => {
+    const a = w / h;
+    // copy block sits top-left: wide screens put the chart in the right 58%, narrow ones in the bottom 55%
+    const wide = a > 1.15;
+    let dist;
+    if (wide) {
+      dist = Math.max(10 / (2 * tanHalf * a * 0.58), 5.6 / (2 * tanHalf * 0.86));
+      group.position.set(dist * tanHalf * a * 0.36, -0.15, 0);
+    } else {
+      dist = Math.max(9.2 / (2 * tanHalf * a), 5.4 / (2 * tanHalf * 0.52));
+      group.position.set(0, -dist * tanHalf * 0.42, 0);
+    }
+    camera.position.set(0, 0, dist);
+    camera.lookAt(0, 0, 0);
+    uniforms.uH.value = (h * renderer.getPixelRatio()) / (2 * tanHalf);
+  });
+
+  const N = MOBILE ? 3800 : 8000;
+  const A = new Float32Array(N * 3), B = new Float32Array(N * 3), C = new Float32Array(N * 3);
+  const cA = new Float32Array(N * 3), cB = new Float32Array(N * 3), cC = new Float32Array(N * 3);
+  const R = new Float32Array(N);
+  const col = new THREE.Color();
+  const put = (arr, i, x, y, z) => { arr[i * 3] = x; arr[i * 3 + 1] = y; arr[i * 3 + 2] = z; };
+  const putC = (arr, i, hex, k = 1) => { col.set(hex).multiplyScalar(k); arr[i * 3] = col.r; arr[i * 3 + 1] = col.g; arr[i * 3 + 2] = col.b; };
+  const gauss = () => (Math.random() + Math.random() + Math.random() - 1.5) / 1.5;
+
+  // B grid layout
+  const cols = Math.round(Math.sqrt(N * 1.9));
+  const rows = Math.ceil(N / cols);
+  // C pareto layout
+  const vals = [52, 28, 7, 4, 3, 2, 1.5, 1, 0.8, 0.7];
+  const X0 = -4.2, CW = 8.4, slot = CW / vals.length, bw = slot * 0.74, YB = -2, BMAX = 3.5, CH = 4;
+  const cum = []; vals.reduce((s, v, i) => (cum[i] = s + v), 0);
+  const barH = vals.map(v => (v / vals[0]) * BMAX);
+  const barCx = vals.map((_, i) => X0 + slot * (i + 0.5));
+  const barTot = barH.reduce((a, b) => a + b, 0);
+  const curvePts = [[X0, YB], ...barCx.map((x, i) => [x, YB + (cum[i] / 100) * CH])];
+  const segLen = curvePts.slice(1).map((p, i) => Math.hypot(p[0] - curvePts[i][0], p[1] - curvePts[i][1]));
+  const curveTot = segLen.reduce((a, b) => a + b, 0);
+  const y80 = YB + 0.8 * CH;
+
+  for (let i = 0; i < N; i++) {
+    R[i] = Math.random();
+    // A: chaotic cloud
+    put(A, i, gauss() * 6, gauss() * 3.4, gauss() * 3);
+    putC(cA, i, Math.random() < 0.18 ? 0xd8673f : 0xf6e9dc, 0.45 + Math.random() * 0.5);
+    // B: master-data grid
+    const c = i % cols, r = Math.floor(i / cols);
+    put(B, i, (c / (cols - 1) - 0.5) * 8.4, (0.5 - r / (rows - 1)) * 4.4, 0);
+    putC(cB, i, r === 0 ? 0xd8673f : (r % 6 === 0 ? 0xe9c9b4 : 0xf6e9dc), r === 0 ? 1 : (c % 12 === 0 ? 0.85 : 0.55));
+    // C: pareto
+    const f = i / N;
+    if (f < 0.8) {
+      let pick = Math.random() * barTot, b = 0;
+      while (pick > barH[b] && b < vals.length - 1) { pick -= barH[b]; b++; }
+      put(C, i, barCx[b] + (Math.random() - 0.5) * bw, YB + Math.random() * barH[b], (Math.random() - 0.5) * 0.4);
+      putC(cC, i, b < 2 ? 0xd8673f : 0xe9c9b4, b < 2 ? 1 : 0.7);
+    } else if (f < 0.94) {
+      let d = Math.random() * curveTot, s = 0;
+      while (d > segLen[s] && s < segLen.length - 1) { d -= segLen[s]; s++; }
+      const t = d / segLen[s], p0 = curvePts[s], p1 = curvePts[s + 1];
+      put(C, i, p0[0] + (p1[0] - p0[0]) * t, p0[1] + (p1[1] - p0[1]) * t + (Math.random() - 0.5) * 0.05, (Math.random() - 0.5) * 0.06);
+      putC(cC, i, 0xfff3e6, 1);
+    } else {
+      let x;
+      do { x = Math.random(); } while (Math.floor(x * 34) % 2 === 1);
+      put(C, i, X0 + x * CW, y80 + (Math.random() - 0.5) * 0.03, 0);
+      putC(cC, i, 0xd4a24c, 1);
+    }
+  }
+
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(A, 3));
+  geo.setAttribute('aB', new THREE.BufferAttribute(B, 3));
+  geo.setAttribute('aC', new THREE.BufferAttribute(C, 3));
+  geo.setAttribute('cA', new THREE.BufferAttribute(cA, 3));
+  geo.setAttribute('cB', new THREE.BufferAttribute(cB, 3));
+  geo.setAttribute('cC', new THREE.BufferAttribute(cC, 3));
+  geo.setAttribute('aR', new THREE.BufferAttribute(R, 1));
+  const mat = new THREE.ShaderMaterial({
+    uniforms, transparent: true, depthWrite: false,
+    vertexShader: `
+      attribute vec3 aB; attribute vec3 aC; attribute vec3 cA; attribute vec3 cB; attribute vec3 cC; attribute float aR;
+      uniform float uP; uniform float uT; uniform float uSize; uniform float uH;
+      varying vec3 vC;
+      void main(){
+        float d = aR * 0.35;
+        float t1 = smoothstep(d, d + 0.65, clamp(uP, 0.0, 1.0));
+        float t2 = smoothstep(d, d + 0.65, clamp(uP - 1.0, 0.0, 1.0));
+        vec3 p = mix(mix(position, aB, t1), aC, t2);
+        float wob = (1.0 - t1) * 0.14 + 0.012;
+        p += vec3(sin(uT * 0.6 + aR * 40.0), cos(uT * 0.5 + aR * 31.0), sin(uT * 0.4 + aR * 23.0)) * wob;
+        // swirl between states
+        float mid = sin(t1 * 3.14159) + sin(t2 * 3.14159);
+        p.z += mid * (aR - 0.5) * 2.2;
+        vC = mix(mix(cA, cB, t1), cC, t2);
+        vec4 mv = modelViewMatrix * vec4(p, 1.0);
+        gl_PointSize = uSize * uH / -mv.z * (0.7 + aR * 0.6);
+        gl_Position = projectionMatrix * mv;
+      }`,
+    fragmentShader: `
+      varying vec3 vC;
+      void main(){
+        float r = length(gl_PointCoord - 0.5);
+        if (r > 0.5) discard;
+        gl_FragColor = vec4(vC, smoothstep(0.5, 0.15, r));
+      }`,
+  });
+  group.add(new THREE.Points(geo, mat));
+
+  let target = uniforms.uP.value;
+  if (!REDUCE && ST) {
+    ST.create({
+      trigger: section, start: 'top top', end: 'bottom bottom',
+      onUpdate: self => { target = Math.min(2, self.progress * 2.3); bar.style.width = (self.progress * 100) + '%'; },
+    });
+  }
+
+  const v = new THREE.Vector3();
+  const place = (el, x, y, z, op, anchor) => {
+    v.set(x, y, z);
+    group.localToWorld(v);
+    v.project(camera);
+    const w = sticky.clientWidth, h = sticky.clientHeight;
+    el.style.transform = `translate(${(v.x + 1) / 2 * w}px, ${(1 - v.y) / 2 * h}px) ${anchor}`;
+    el.style.opacity = op;
+  };
+  let lastStep = -1;
+  loop(section, (dt, t) => {
+    const p = uniforms.uP.value += (target - uniforms.uP.value) * Math.min(1, dt * 4);
+    uniforms.uT.value = t;
+    const k = 1 - Math.min(p / 2, 1);
+    group.rotation.y = k * 0.6 + pointer.x * 0.12;
+    group.rotation.x = k * 0.25 - pointer.y * 0.06;
+    const s = p < 0.55 ? 0 : p < 1.5 ? 1 : 2;
+    if (s !== lastStep) { steps.forEach((el, i) => el.classList.toggle('on', i === s)); lastStep = s; }
+    const show = Math.max(0, Math.min(1, (p - 1.75) / 0.25));
+    place(labs.l80, X0 + CW, y80, 0, show, 'translate(-100%, -150%)');
+    place(labs.top, X0, YB, 0, show, 'translate(0, 40%)');
+    place(labs.curve, barCx[5], YB + cum[5] / 100 * CH, 0, show, 'translate(-50%, -170%)');
+    renderer.render(scene, camera);
+  });
+}
+
+/* ======================================================
+   3. HABILIDADES — constelación
+   ====================================================== */
+const SKILLS = [
+  { short: 'Datos maestros', title: 'Gestión de datos maestros y catálogos', desc: 'Doy de alta, de baja y habilito SKU, y me ocupo de que el catálogo estratégico esté bien clasificado.' },
+  { short: 'Análisis de datos', title: 'Análisis de datos y Excel', desc: 'Miro disponibilidad, quiebres, rotación y Pareto, y lo paso a reportes en Excel y Power BI.' },
+  { short: 'Planogramas', title: 'Planogramación y Category Management', desc: 'Ubico cada SKU en la góndola según rotación y demanda, y defino cuánto exhibir de cada uno.' },
+  { short: 'Compras', title: 'Compras y abastecimiento', desc: 'Compré categorías perecederas mirando demanda, rotación y cobertura, y seguía cada pedido con el proveedor.' },
+  { short: 'Surtido', title: 'Gestión de surtido y disponibilidad', desc: 'Que no falte lo que se vende y que no sobre lo que no rota. Para eso coordino con comercial, abastecimiento y logística.' },
+  { short: 'Pensamiento crítico', title: 'Pensamiento crítico y resolución de problemas', desc: 'Cuando un artículo tiene un problema de codificación, facturación o parametrización, busco la causa y sigo el caso hasta que se corrige.' },
+  { short: 'Contabilidad', title: 'Contabilidad y finanzas', desc: 'Vengo de contabilidad: cierres mensuales y anuales, IVA, IT, RC-IVA, conciliaciones bancarias y activos fijos.' },
+  { short: 'IA aplicada', title: 'IA para automatización y clasificación', desc: 'Uso IA para clasificar artículos, depurar el catálogo y revisar información más rápido.' },
+  { short: 'Automatización n8n', title: 'Automatización de procesos con n8n', desc: 'Armo flujos en n8n para que los reportes y las tareas repetitivas no dependan de hacerlos a mano.' },
+];
+const APTS = [
+  { short: 'Aprendizaje rápido', title: 'Rápido aprendizaje y adaptabilidad', desc: 'En Makro Parque pasé por contabilidad, catálogo, compras y datos maestros. Cada cambio fue aprender un área nueva.' },
+  { short: 'Compromiso', title: 'Fiabilidad y compromiso', desc: 'Compras, logística y ventas trabajan con los datos que cargo. Si están mal, se nota en la góndola.' },
+  { short: 'Comunicación', title: 'Comunicación efectiva', desc: 'Mi trabajo depende de entenderme con proveedores y con las áreas comercial, de abastecimiento y de logística.' },
+  { short: 'Trabajo en equipo', title: 'Trabajo en equipo', desc: 'Un SKU nuevo pasa por varias áreas antes de llegar a la góndola. Casi nada sale de una sola persona.' },
+  { short: 'Proactividad', title: 'Proactividad y organización', desc: 'Prefiero encontrar un error en el catálogo antes de que aparezca en la tienda.' },
+];
+
+function buildStaticSkills(stage) {
+  stage.classList.add('static');
+  const layer = document.getElementById('skills-labels');
+  layer.innerHTML = '';
+  [...SKILLS.map(s => ({ ...s, apt: false })), ...APTS.map(s => ({ ...s, apt: true }))].forEach(n => {
+    const b = document.createElement('button');
+    b.className = 'node' + (n.apt ? ' n-apt' : '');
+    b.textContent = n.short;
+    b.addEventListener('click', () => showPanel(n));
+    layer.appendChild(b);
+  });
+}
+function showPanel(n) {
+  const panel = document.getElementById('skill-panel');
+  panel.innerHTML = `<small>${n.center ? 'Perfil' : n.apt ? 'Aptitud' : 'Habilidad técnica'}</small><h3></h3><p></p>`;
+  panel.querySelector('h3').textContent = n.title;
+  panel.querySelector('p').textContent = n.desc;
+}
+
+function initSkills() {
+  const stage = document.getElementById('skills-stage');
+  const canvas = document.getElementById('skills-canvas');
+  const layer = document.getElementById('skills-labels');
+  const renderer = makeRenderer(canvas);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
+  const tanHalf = Math.tan(THREE.MathUtils.degToRad(20));
+  fit(stage, renderer, camera, (w, h) => {
+    const a = w / h;
+    camera.position.set(0, 0, 4.1 / (tanHalf * Math.min(a, 1)));
+    camera.lookAt(0, 0, 0);
+  });
+
+  const group = new THREE.Group();
+  group.rotation.x = 0.25;
+  scene.add(group);
+
+  const glowCanvas = document.createElement('canvas');
+  glowCanvas.width = glowCanvas.height = 128;
+  const gc = glowCanvas.getContext('2d');
+  const grad = gc.createRadialGradient(64, 64, 0, 64, 64, 64);
+  grad.addColorStop(0, 'rgba(255,255,255,1)');
+  grad.addColorStop(0.25, 'rgba(255,255,255,.45)');
+  grad.addColorStop(1, 'rgba(255,255,255,0)');
+  gc.fillStyle = grad; gc.fillRect(0, 0, 128, 128);
+  const glowTex = new THREE.CanvasTexture(glowCanvas);
+
+  const nodes = [];
+  const addNode = (data, pos, color, size) => {
+    const mesh = new THREE.Mesh(new THREE.SphereGeometry(size, 24, 16), new THREE.MeshBasicMaterial({ color }));
+    mesh.position.copy(pos);
+    const glow = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color, transparent: true, opacity: 0.55, blending: THREE.AdditiveBlending, depthWrite: false }));
+    glow.scale.setScalar(size * 9);
+    mesh.add(glow);
+    group.add(mesh);
+    const btn = document.createElement('button');
+    btn.className = 'node' + (data.apt ? ' n-apt' : '') + (data.center ? ' center' : '');
+    btn.textContent = data.short;
+    btn.type = 'button';
+    layer.appendChild(btn);
+    const node = { data, mesh, glow, btn, pos, edges: [] };
+    nodes.push(node);
+    return node;
+  };
+
+  const center = addNode({ short: 'Camila', title: 'Camila Franco Rojas', desc: 'Administración, retail y datos. Cada nodo es algo que uso en el trabajo.', center: true }, new THREE.Vector3(), 0xd8673f, 0.2);
+  const SR = 2.6, golden = Math.PI * (3 - Math.sqrt(5));
+  const skillNodes = SKILLS.map((s, i) => {
+    const y = 1 - ((i + 0.5) / SKILLS.length) * 2, r = Math.sqrt(1 - y * y), th = golden * i;
+    return addNode(s, new THREE.Vector3(Math.cos(th) * r * SR, y * SR * 1.1, Math.sin(th) * r * SR), 0xe0805f, 0.12);
+  });
+  const tilt = new THREE.Euler(0.85, 0, 0.2);
+  const aptNodes = APTS.map((s, i) => {
+    const a = (i / APTS.length) * Math.PI * 2 + 0.4;
+    const p = new THREE.Vector3(Math.cos(a) * 3.7, Math.sin(a * 2) * 0.35, Math.sin(a) * 3.7).applyEuler(tilt);
+    return addNode({ ...s, apt: true }, p, 0xd4a24c, 0.1);
+  });
+
+  const edges = [];
+  const link = (a, b) => { edges.push([a, b]); a.edges.push(b); b.edges.push(a); };
+  skillNodes.forEach((n, i) => { link(center, n); link(n, skillNodes[(i + 1) % skillNodes.length]); });
+  aptNodes.forEach(a => {
+    [...skillNodes].sort((p, q) => p.pos.distanceTo(a.pos) - q.pos.distanceTo(a.pos)).slice(0, 2).forEach(s => link(a, s));
+    link(a, aptNodes[(aptNodes.indexOf(a) + 1) % aptNodes.length]);
+  });
+  const byShort = k => nodes.find(n => n.data.short === k);
+  [['IA aplicada', 'Datos maestros'], ['IA aplicada', 'Análisis de datos'], ['IA aplicada', 'Automatización n8n'], ['Automatización n8n', 'Aprendizaje rápido']]
+    .forEach(([a, b]) => { const A = byShort(a), B = byShort(b); if (A && B && !A.edges.includes(B)) link(A, B); });
+  const linePos = new Float32Array(edges.length * 6);
+  edges.forEach(([a, b], i) => { a.pos.toArray(linePos, i * 6); b.pos.toArray(linePos, i * 6 + 3); });
+  const lineGeo = new THREE.BufferGeometry();
+  lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+  group.add(new THREE.LineSegments(lineGeo, new THREE.LineBasicMaterial({ color: 0xe9c9b4, transparent: true, opacity: 0.16 })));
+
+  const hiGeo = new THREE.BufferGeometry();
+  hiGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(24 * 6), 3));
+  hiGeo.setDrawRange(0, 0);
+  group.add(new THREE.LineSegments(hiGeo, new THREE.LineBasicMaterial({ color: 0xf6e9dc, transparent: true, opacity: 0.85 })));
+
+  // signal pulses travelling along edges
+  const pulseN = 26;
+  const pulseGeo = new THREE.BufferGeometry();
+  const pulseArr = new Float32Array(pulseN * 3);
+  pulseGeo.setAttribute('position', new THREE.BufferAttribute(pulseArr, 3));
+  const pulses = Array.from({ length: pulseN }, () => ({ e: Math.floor(Math.random() * edges.length), t: Math.random(), s: 0.25 + Math.random() * 0.5 }));
+  group.add(new THREE.Points(pulseGeo, new THREE.PointsMaterial({ color: 0xffe2c9, size: 0.09, map: glowTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending })));
+
+  // dust
+  const dustN = MOBILE ? 300 : 700;
+  const dust = new Float32Array(dustN * 3);
+  for (let i = 0; i < dustN; i++) {
+    const v = new THREE.Vector3().randomDirection().multiplyScalar(2 + Math.random() * 5);
+    v.toArray(dust, i * 3);
+  }
+  const dustGeo = new THREE.BufferGeometry();
+  dustGeo.setAttribute('position', new THREE.BufferAttribute(dust, 3));
+  group.add(new THREE.Points(dustGeo, new THREE.PointsMaterial({ color: 0xe9c9b4, size: 0.025, transparent: true, opacity: 0.45, depthWrite: false })));
+
+  let active = null;
+  function setActive(n) {
+    active = n;
+    nodes.forEach(m => {
+      const on = m === n, near = n && n.edges.includes(m);
+      m.btn.classList.toggle('active', on);
+      gsap.to(m.mesh.scale, { x: on ? 1.8 : 1, y: on ? 1.8 : 1, z: on ? 1.8 : 1, duration: 0.4, ease: 'back.out(2)' });
+      gsap.to(m.glow.material, { opacity: !n ? 0.55 : on ? 1 : near ? 0.7 : 0.2, duration: 0.4 });
+    });
+    const arr = hiGeo.attributes.position.array;
+    let k = 0;
+    if (n) n.edges.forEach(m => { n.pos.toArray(arr, k * 6); m.pos.toArray(arr, k * 6 + 3); k++; });
+    hiGeo.attributes.position.needsUpdate = true;
+    hiGeo.setDrawRange(0, k * 2);
+    if (n) showPanel(n.data);
+  }
+  nodes.forEach(n => {
+    n.btn.addEventListener('pointerenter', () => setActive(n));
+    n.btn.addEventListener('focus', () => setActive(n));
+    n.btn.addEventListener('click', () => setActive(n));
+  });
+
+  // drag to rotate
+  let dragging = false, lx = 0, vel = 0, yaw = 0;
+  canvas.addEventListener('pointerdown', e => { dragging = true; lx = e.clientX; vel = 0; canvas.setPointerCapture(e.pointerId); });
+  canvas.addEventListener('pointermove', e => { if (!dragging) return; const dx = e.clientX - lx; lx = e.clientX; vel = dx * 0.005; yaw += vel; });
+  const end = () => { dragging = false; };
+  canvas.addEventListener('pointerup', end);
+  canvas.addEventListener('pointercancel', end);
+
+  const v = new THREE.Vector3();
+  loop(stage, (dt, t) => {
+    if (!dragging) {
+      vel *= 0.94;
+      yaw += vel + (REDUCE || active ? 0 : dt * 0.12);
+    }
+    group.rotation.y = yaw + pointer.x * 0.08;
+    group.rotation.x = 0.25 + pointer.y * 0.06;
+
+    if (!REDUCE) {
+      pulses.forEach((p, pi) => {
+        p.t += dt * p.s;
+        if (p.t > 1) { p.t = 0; p.e = Math.floor(Math.random() * edges.length); }
+        const [a, b] = edges[p.e];
+        v.lerpVectors(a.pos, b.pos, p.t).toArray(pulseArr, pi * 3);
+      });
+      pulseGeo.attributes.position.needsUpdate = true;
+    }
+    center.mesh.scale.setScalar((active === center ? 1.8 : 1) * (1 + Math.sin(t * 2) * 0.06));
+
+    group.updateMatrixWorld();
+    const w = stage.clientWidth, h = stage.clientHeight;
+    for (const n of nodes) {
+      n.mesh.getWorldPosition(v);
+      const depth = THREE.MathUtils.clamp((v.z + 3.7) / 7.4, 0, 1);
+      v.project(camera);
+      const y = (1 - v.y) / 2 * h;
+      let x = (v.x + 1) / 2 * w;
+      if (n.data.center) x -= (n.bw ||= n.btn.offsetWidth) / 2;
+      else x = Math.min(x + 14, w - (n.bw ||= n.btn.offsetWidth) - 4);
+      n.btn.style.transform = `translate(${x}px, ${y}px) translateY(-50%) scale(${0.82 + depth * 0.18})`;
+      n.btn.style.opacity = n === active ? 1 : 0.35 + depth * 0.65;
+      n.btn.style.zIndex = n === active ? 99 : n.data.center ? 60 : Math.round(depth * 50);
+    }
+    renderer.render(scene, camera);
+  });
+}
+
+/* ======================================================
+   Page motion: intro, reveals, counters, timeline, magnetic
+   ====================================================== */
+function initMotion() {
+  if (!gsap || REDUCE) return;
+  gsap.from('[data-intro]', { y: 36, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.1, delay: 0.1 });
+  gsap.from('#hero-visual', { opacity: 0, scale: 0.96, duration: 1.4, ease: 'power2.out', delay: 0.2 });
+  if (!ST) return;
+  gsap.utils.toArray('[data-reveal]').forEach(el => {
+    gsap.from(el, { y: 40, opacity: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
+  });
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const o = { v: 0 }, end = +el.dataset.count, suf = el.dataset.suffix || '';
+    el.textContent = '0' + suf;
+    gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%' },
+      onUpdate: () => { el.textContent = Math.round(o.v) + suf; } });
+  });
+  gsap.to('#timeline-fill', { height: 'calc(100% - 16px)', ease: 'none',
+    scrollTrigger: { trigger: '#timeline', start: 'top 70%', end: 'bottom 70%', scrub: true } });
+  if (matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('[data-magnetic]').forEach(el => {
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect();
+        gsap.to(el, { x: (e.clientX - r.left - r.width / 2) * 0.25, y: (e.clientY - r.top - r.height / 2) * 0.35, duration: 0.3 });
+      });
+      el.addEventListener('pointerleave', () => gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, .4)' }));
+    });
+  }
+}
+
+function safe(fn, onFail) {
+  try { fn(); } catch (e) { console.warn(e); onFail && onFail(); }
+}
+const hasGL = (() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; } })();
+
+/* ======================================================
+   Flujo n8n animado
+   ====================================================== */
+function initFlow() {
+  const flow = document.getElementById('flow');
+  const fnodes = [...flow.querySelectorAll('.fnode')];
+  const st = document.getElementById('flow-status');
+  if (REDUCE) { fnodes.forEach(n => n.classList.add('ok')); flow.classList.add('done'); st.textContent = 'Flujo ejecutado con éxito'; return; }
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  const msgs = ['Leyendo catálogo…', 'IA clasificando artículos…', 'Validando datos…', 'Generando reporte…'];
+  let visible = false, running = false;
+  async function run() {
+    running = true;
+    while (visible) {
+      flow.classList.remove('done');
+      fnodes.forEach(n => n.classList.remove('ok', 'run', 'send'));
+      for (let i = 0; i < fnodes.length; i++) {
+        const n = fnodes[i];
+        st.textContent = msgs[i];
+        n.classList.add('run');
+        await wait(i === 1 ? 1200 : 650);
+        n.classList.remove('run');
+        n.classList.add('ok');
+        if (i < fnodes.length - 1) { n.classList.add('send'); await wait(700); n.classList.remove('send'); }
+      }
+      flow.classList.add('done');
+      st.textContent = 'Flujo ejecutado con éxito';
+      await wait(2800);
+    }
+    running = false;
+  }
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !running) run(); }).observe(flow);
+}
+
+safe(initFlow);
+initMotion();
+if (hasGL && gsap) {
+  safe(initHero, () => document.getElementById('hero-visual').classList.add('no-webgl'));
+  safe(initPareto, () => document.getElementById('pareto').style.display = 'none');
+  safe(initSkills, () => buildStaticSkills(document.getElementById('skills-stage')));
+} else {
+  document.getElementById('hero-visual').classList.add('no-webgl');
+  document.getElementById('pareto').style.display = 'none';
+  buildStaticSkills(document.getElementById('skills-stage'));
+}
+</script>
+
+<div id="n8n-chat"></div>
+<script type="module">
+import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat@1.43.1/dist/chat.bundle.es.js';
+try {
+  createChat({
+    webhookUrl: 'https://n8n.oh-taku.site/webhook/e22ae811-bc26-4e14-9025-98912c271252/chat',
+    mode: 'window',
+    target: '#n8n-chat',
+    showWelcomeScreen: false,
+    loadPreviousSession: true,
+    defaultLanguage: 'en',
+    initialMessages: [
+      '¡Hola! Soy el asistente de Camila.',
+      'Pregúntame sobre su experiencia, habilidades o cómo contactarla.',
+    ],
+    i18n: {
+      en: {
+        title: 'Asistente de Camila',
+        subtitle: 'Te cuento sobre su experiencia y su trabajo.',
+        footer: '',
+        getStarted: 'Nueva conversación',
+        inputPlaceholder: 'Escribe tu pregunta…',
+        closeButtonTooltip: 'Cerrar',
+      },
+    },
+  });
+} catch (e) { console.warn('n8n chat', e); }
+
+document.getElementById('open-chat')?.addEventListener('click', () => {
+  const toggle = document.querySelector('#n8n-chat .chat-window-toggle');
+  const win = document.querySelector('#n8n-chat .chat-window');
+  if (toggle && (!win || win.offsetParent === null)) toggle.click();
+});
+</script>
+</body>
+</html>
