@@ -102,7 +102,7 @@ section{scroll-margin-top:24px}
 .no-webgl canvas,.no-webgl .hero-hint,.no-webgl .hero-status,.no-webgl .hero-tag,.no-webgl .hero-oos{display:none}
 
 /* about */
-.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center;padding:110px 0 40px;border-top:1px solid var(--line)}
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center;padding:110px 0 40px}
 .portrait{position:relative;max-width:400px;width:calc(100% - 24px);justify-self:center;margin-right:24px}
 .portrait::before{content:"";position:absolute;inset:24px -24px -24px 24px;border-radius:220px 220px 24px 24px;background:var(--peach)}
 .portrait img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:220px 220px 24px 24px}
@@ -116,7 +116,7 @@ section{scroll-margin-top:24px}
 .langs{display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:15px}
 
 /* pareto */
-.pareto{position:relative;height:340vh;background:var(--ink);color:var(--bg);margin-top:110px}
+.pareto{position:relative;height:340vh;background:var(--ink);color:var(--bg);margin-top:170px}
 .pareto-sticky{position:sticky;top:0;height:100vh;overflow:hidden}
 .pareto canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .pareto-copy{position:absolute;top:clamp(28px,7vh,72px);left:max(28px,calc((100vw - 1180px)/2 + 28px));max-width:400px;display:flex;flex-direction:column;gap:18px;z-index:2;pointer-events:none}
@@ -138,7 +138,7 @@ section{scroll-margin-top:24px}
 .reduced .pareto-sticky{position:relative;height:100vh}
 
 /* experience */
-.exp{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:48px;padding:120px 0 40px}
+.exp{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:48px;padding:180px 0 40px}
 .exp-head{display:flex;flex-direction:column;gap:12px;align-self:start;position:sticky;top:32px}
 .timeline{position:relative;display:flex;flex-direction:column;gap:44px;padding-left:34px}
 .timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--line)}
@@ -170,7 +170,7 @@ section{scroll-margin-top:24px}
 .path li.cur{padding:5px 12px;border-radius:999px;background:var(--accent);color:#fff}
 
 /* skills */
-.skills{background:var(--ink);color:var(--bg);border-radius:28px;margin-top:100px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:24px;overflow:hidden}
+.skills{background:var(--ink);color:var(--bg);border-radius:56px;box-shadow:0 0 70px 34px var(--ink);margin-top:150px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:24px;overflow:hidden}
 .skills-side{display:flex;flex-direction:column;gap:24px;align-self:center;z-index:1}
 .skills .eyebrow{color:var(--peach)}
 .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:#cdbfb2}
@@ -194,16 +194,16 @@ section{scroll-margin-top:24px}
 .stage.static{min-height:0}
 
 /* aptitudes */
-.apts{padding:120px 0 40px;display:flex;flex-direction:column;gap:40px}
+.apts{padding:160px 0 40px;display:flex;flex-direction:column;gap:40px}
 .apt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
-.apt{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:12px;background:var(--cream);transition:transform .3s,box-shadow .3s,border-color .3s}
+.apt{border:1px solid rgba(217,205,193,.55);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:12px;background:rgba(255,250,243,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:transform .3s,box-shadow .3s,border-color .3s}
 .apt:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(42,36,32,.08);border-color:var(--peach)}
 .apt b{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;color:var(--accent)}
 .apt h3{font-size:18px;font-weight:600;line-height:1.3}
 .apt p{font-size:15px;line-height:1.5;color:var(--muted)}
 
 /* education */
-.edu{padding:110px 0 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:56px;align-items:start;border-top:1px solid var(--line);margin-top:80px}
+.edu{padding:110px 0 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:56px;align-items:start;margin-top:80px}
 .edu-head{display:flex;flex-direction:column;gap:12px;position:sticky;top:40px}
 .edu-head .muted{font-size:16px;line-height:1.5;max-width:40ch;margin-top:8px}
 .ticket{position:relative;width:100%;justify-self:end}
@@ -230,7 +230,7 @@ section{scroll-margin-top:24px}
 .ticket.printing .tk-printer i{background:var(--mustard);animation:blink .3s steps(2) infinite}
 
 /* contact */
-.contact{margin:110px 0 0;padding:72px 0 40px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:28px}
+.contact{margin:110px 0 0;padding:72px 0 40px;display:flex;flex-direction:column;gap:28px}
 .contact .big{font-family:var(--serif);font-size:clamp(56px,10vw,128px);line-height:.95}
 .contact .big em{color:var(--accent)}
 .contact .mail{font-size:clamp(20px,3vw,30px);border-bottom:1px solid currentColor;align-self:flex-start;word-break:break-all}
@@ -240,7 +240,7 @@ section{scroll-margin-top:24px}
 .ai{padding:120px 0 20px;display:flex;flex-direction:column;gap:44px}
 .ai-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:end}
 .ai-head p.muted{font-size:17px;line-height:1.6;max-width:52ch}
-.flow{position:relative;border:1px solid var(--line);border-radius:24px;padding:56px 32px 28px;background:var(--cream);background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px;overflow:hidden}
+.flow{position:relative;border:1px solid rgba(217,205,193,.55);border-radius:24px;padding:56px 32px 28px;background-color:rgba(255,250,243,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:22px 22px;overflow:hidden}
 .flow-status{position:absolute;top:16px;left:20px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--muted)}
 .flow-status i{width:8px;height:8px;border-radius:50%;background:var(--mustard);transition:background .3s}
 .flow.done .flow-status i{background:#6f9a5b}
@@ -266,7 +266,7 @@ section{scroll-margin-top:24px}
 .fnode.send .dot{animation:flowdot .7s ease-in-out forwards}
 @keyframes flowdot{0%{opacity:1;left:calc(50% + 50px)}100%{opacity:1;left:calc(150% - 62px)}}
 .ai-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
-.ai-card{border:1px solid var(--line);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.ai-card{border:1px solid rgba(217,205,193,.55);border-radius:20px;padding:26px;display:flex;flex-direction:column;gap:12px;background:rgba(255,250,243,.45);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .ai-card .ic{width:44px;height:44px;border-radius:12px;background:var(--peach);display:grid;place-items:center;color:var(--accent)}
 .ai-card .ic svg{width:22px;height:22px}
 .ai-card h3{font-size:19px;font-weight:600}
@@ -276,6 +276,25 @@ section{scroll-margin-top:24px}
 .ai-card.dark .ic{background:var(--accent);color:var(--bg)}
 .ai-card .btn{align-self:flex-start;margin-top:auto;background:var(--bg);color:var(--ink);border:0;cursor:pointer;font-family:inherit}
 .ai-card .btn:hover{background:var(--accent);color:var(--bg)}
+
+/* fondo continuo: manchas de color difuminadas detrás de todo */
+.ambient{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.ambient i{position:absolute;width:70vmax;height:70vmax;border-radius:50%;opacity:.55;animation:drift 38s ease-in-out infinite alternate}
+.ambient i:nth-child(1){left:-25vmax;top:-20vmax;background:radial-gradient(circle,rgba(233,201,180,.9),rgba(233,201,180,0) 62%)}
+.ambient i:nth-child(2){right:-30vmax;top:20vh;background:radial-gradient(circle,rgba(212,162,76,.35),rgba(212,162,76,0) 60%);animation-duration:46s;animation-delay:-12s}
+.ambient i:nth-child(3){left:10vw;bottom:-40vmax;background:radial-gradient(circle,rgba(164,72,47,.22),rgba(164,72,47,0) 60%);animation-duration:52s;animation-delay:-24s}
+@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(6vw,8vh,0) scale(1.15)}}
+@media (prefers-reduced-motion:reduce){.ambient i{animation:none}}
+
+/* bloque oscuro del Pareto: entra y sale en degradé */
+.pareto::before,.pareto::after{content:"";position:absolute;left:0;right:0;height:160px;pointer-events:none}
+.pareto::before{bottom:100%;background:linear-gradient(to bottom,rgba(42,36,32,0) 0%,rgba(42,36,32,.07) 25%,rgba(42,36,32,.28) 50%,rgba(42,36,32,.64) 75%,var(--ink) 100%)}
+.pareto::after{top:100%;background:linear-gradient(to top,rgba(42,36,32,0) 0%,rgba(42,36,32,.07) 25%,rgba(42,36,32,.28) 50%,rgba(42,36,32,.64) 75%,var(--ink) 100%)}
+
+/* palabra gigante semitransparente que se solapa entre secciones */
+.marked{position:relative}
+.marked::before{content:attr(data-mark);position:absolute;z-index:-1;top:-.42em;left:-.04em;font-family:var(--serif);font-style:italic;font-size:clamp(110px,19vw,260px);line-height:1;white-space:nowrap;color:var(--accent);opacity:.07;pointer-events:none}
+.edu.marked::before,.contact.marked::before{left:auto;right:-.04em}
 
 /* n8n chat theme (on #n8n-chat so it beats the widget's own :root defaults) */
 #n8n-chat{
@@ -321,9 +340,12 @@ section{scroll-margin-top:24px}
   .edu-head{position:static}
   .ticket{justify-self:stretch}
   .about{grid-template-columns:1fr;gap:56px;padding-top:80px}
-  .exp{grid-template-columns:1fr;gap:32px;padding-top:90px}
+  .exp{grid-template-columns:1fr;gap:32px;padding-top:160px}
   .exp-head{position:static}
-  .skills{grid-template-columns:1fr;margin-top:70px}
+  .skills{grid-template-columns:1fr;margin:40px -28px 0;border-radius:0;box-shadow:none;background:linear-gradient(to bottom,rgba(42,36,32,0) 0,rgba(42,36,32,.07) 35px,rgba(42,36,32,.28) 70px,rgba(42,36,32,.64) 105px,var(--ink) 140px,var(--ink) calc(100% - 140px),rgba(42,36,32,.64) calc(100% - 105px),rgba(42,36,32,.28) calc(100% - 70px),rgba(42,36,32,.07) calc(100% - 35px),rgba(42,36,32,0) 100%);padding:160px 20px}
+  .apts{padding-top:40px}
+  .panel{padding:18px;min-height:0}
+  .panel h3{font-size:26px}
   .stage{min-height:460px}
   .pareto-copy{left:20px;right:20px;max-width:none;gap:12px}
   .pareto-copy .h2{font-size:36px}
@@ -333,6 +355,7 @@ section{scroll-margin-top:24px}
 }
 @media (max-width:520px){
   .wrap{padding:0 16px}
+  .skills{margin-left:-16px;margin-right:-16px;padding:160px 16px}
   .top nav{gap:14px}
 }
 </style>
@@ -347,6 +370,7 @@ section{scroll-margin-top:24px}
 </script>
 </head>
 <body>
+<div class="ambient" aria-hidden="true"><i></i><i></i><i></i></div>
 
 <div class="wrap">
   <header class="top">
@@ -435,7 +459,7 @@ section{scroll-margin-top:24px}
 
 <div class="wrap">
   <!-- EXPERIENCIA -->
-  <section class="exp" id="experiencia">
+  <section class="exp marked" id="experiencia" data-mark="Trayectoria">
     <div class="exp-head">
       <p class="eyebrow" data-reveal>Trayectoria</p>
       <h2 class="h2" data-reveal>Experiencia</h2>
@@ -519,7 +543,7 @@ section{scroll-margin-top:24px}
   </section>
 
   <!-- IA APLICADA -->
-  <section class="ai" id="ia">
+  <section class="ai marked" id="ia" data-mark="IA aplicada">
     <div class="ai-head">
       <div style="display:flex;flex-direction:column;gap:12px">
         <p class="eyebrow" data-reveal>Inteligencia artificial</p>
@@ -581,7 +605,7 @@ section{scroll-margin-top:24px}
   </section>
 
   <!-- FORMACIÓN -->
-  <section class="edu" id="formacion">
+  <section class="edu marked" id="formacion" data-mark="Formación">
     <div class="edu-head">
       <p class="eyebrow" data-reveal>Educación</p>
       <h2 class="h2" data-reveal>Formación</h2>
@@ -633,7 +657,7 @@ section{scroll-margin-top:24px}
   </section>
 
   <!-- CONTACTO -->
-  <section class="contact" id="contacto">
+  <section class="contact marked" id="contacto" data-mark="Hola">
     <p class="eyebrow" data-reveal>Contacto</p>
     <p class="big" data-reveal>¿Conversamos?<br><em>Escríbeme.</em></p>
     <a class="mail" data-reveal href="mailto:camilafr650@gmail.com">camilafr650@gmail.com</a>
