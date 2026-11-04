@@ -31,12 +31,12 @@
 <meta name="twitter:image:alt" content="Camila Franco Rojas: datos maestros, catálogo y planogramas en Makro Parque">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f6f1ea; --ink:#2a2420; --accent:#a4482f; --peach:#e9c9b4; --muted:#6b5f56;
   --line:#d9cdc1; --mustard:#d4a24c; --dark-line:#4a403a; --cream:#fffaf3;
-  --serif:'Instrument Serif',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+  --serif:'Instrument Serif',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif; --mono:'DM Mono',ui-monospace,Menlo,monospace; --alert:#c8452f;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -80,10 +80,26 @@ section{scroll-margin-top:24px}
 .hero-status{position:absolute;top:8px;left:8px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:var(--cream);border:1px solid var(--line);box-shadow:0 6px 20px rgba(42,36,32,.06);pointer-events:none}
 .hero-status i{width:8px;height:8px;border-radius:50%;background:var(--mustard);transition:background .3s}
 .hero-status.done i{background:#6f9a5b}
+.hero-status.alert i{background:var(--alert);animation:blink .5s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.hero-tag{position:absolute;left:0;top:0;z-index:2;width:196px;padding:12px 14px;display:flex;flex-direction:column;gap:3px;background:var(--cream);border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px rgba(42,36,32,.14);font-size:12px;line-height:1.35;color:var(--muted);pointer-events:none;opacity:0;transform:translate(-50%,calc(-100% - 12px)) scale(.9);transform-origin:50% 100%;transition:opacity .16s,transform .2s cubic-bezier(.3,1.6,.6,1)}
+.hero-tag.on{opacity:1;transform:translate(-50%,calc(-100% - 12px)) scale(1)}
+.hero-tag::after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;background:var(--cream);border:solid var(--line);border-width:0 1px 1px 0;transform:translateX(-50%) rotate(45deg)}
+.tag-code{position:relative;height:26px;margin-bottom:6px;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 3px,var(--ink) 3px 4px,transparent 4px 7px,var(--ink) 7px 10px,transparent 10px 11px,var(--ink) 11px 12px,transparent 12px 15px,var(--ink) 15px 16px,transparent 16px 18px);opacity:.85}
+.tag-code i{position:absolute;left:-4px;right:-4px;top:0;height:2px;background:var(--alert);box-shadow:0 0 6px 1px rgba(200,69,47,.7);opacity:0}
+.hero-tag.on .tag-code i{animation:laser .6s ease-in-out 2 alternate}
+@keyframes laser{0%{top:0;opacity:1}100%{top:calc(100% - 2px);opacity:1}}
+.tag-sku{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--ink);letter-spacing:.02em}
+.tag-name{font-size:13px;font-weight:600;color:var(--ink)}
+.tag-ok{margin-top:4px;font-weight:600;color:#5d8a4a;opacity:0}
+.hero-tag.on .tag-ok{animation:tagok .25s ease-out 1.15s forwards}
+@keyframes tagok{from{opacity:0;transform:translateY(3px)}to{opacity:1;transform:none}}
+.hero-oos{position:absolute;left:0;top:0;z-index:2;padding:5px 10px;border-radius:999px;background:var(--alert);color:#fff;font-size:12px;font-weight:600;white-space:nowrap;pointer-events:none;opacity:0;transform:translate(-50%,-100%) scale(.8);transition:opacity .2s,transform .25s cubic-bezier(.3,1.6,.6,1)}
+.hero-oos.on{opacity:1;transform:translate(-50%,calc(-100% - 6px)) scale(1)}
 .hero-hint{position:absolute;bottom:4px;right:8px;font-size:13px;color:var(--muted);pointer-events:none}
 .hero-fallback{display:none;position:absolute;inset:0;margin:auto;width:min(100%,400px);aspect-ratio:4/5;object-fit:cover;border-radius:220px 220px 24px 24px}
 .no-webgl .hero-fallback{display:block}
-.no-webgl canvas,.no-webgl .hero-hint,.no-webgl .hero-status{display:none}
+.no-webgl canvas,.no-webgl .hero-hint,.no-webgl .hero-status,.no-webgl .hero-tag,.no-webgl .hero-oos{display:none}
 
 /* about */
 .about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center;padding:110px 0 40px;border-top:1px solid var(--line)}
@@ -130,6 +146,15 @@ section{scroll-margin-top:24px}
 .job{position:relative;display:flex;flex-direction:column;gap:10px}
 .job::before{content:"";position:absolute;left:-34px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
 .job.now::before{background:var(--accent);box-shadow:0 0 0 6px rgba(164,72,47,.15)}
+.job::before{transition:background .25s}
+.job.picked::before{background:var(--accent)}
+.tl-cart{position:absolute;left:-10px;top:0;z-index:2;width:34px;height:30px;color:var(--ink);pointer-events:none;will-change:transform}
+.tl-cart svg{display:block;width:100%;height:100%;overflow:visible}
+.tl-cart .wheel{transform-box:fill-box;transform-origin:center}
+.tl-cart .box{opacity:0;transform:translateY(-8px);transition:opacity .2s,transform .3s cubic-bezier(.3,1.6,.6,1)}
+.tl-cart .box.on{opacity:1;transform:none}
+.tl-cart b{position:absolute;top:-8px;right:-10px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--accent);color:#fff;font-size:11px;font-weight:600;line-height:18px;text-align:center;opacity:0;transform:scale(.5);transition:opacity .2s,transform .25s cubic-bezier(.3,1.6,.6,1)}
+.tl-cart b.on{opacity:1;transform:none}
 .job-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
 .job h3{font-size:23px;font-weight:600;line-height:1.25}
 .job .co{font-size:15px;color:var(--muted)}
@@ -171,14 +196,31 @@ section{scroll-margin-top:24px}
 .apt p{font-size:15px;line-height:1.5;color:var(--muted)}
 
 /* education */
-.edu{padding:110px 0 40px;display:flex;flex-direction:column;gap:40px;border-top:1px solid var(--line);margin-top:80px}
-.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.card{border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px}
-.card.feature{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.card.feature .muted{color:#cdbfb2}
-.card h3{font-size:19px;font-weight:600;line-height:1.3}
-.card .when{font-size:14px}
-.card .pill{align-self:flex-start;margin-top:6px;white-space:normal;max-width:100%;line-height:1.35;border-radius:12px;padding:6px 12px}
+.edu{padding:110px 0 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:56px;align-items:start;border-top:1px solid var(--line);margin-top:80px}
+.edu-head{display:flex;flex-direction:column;gap:12px;position:sticky;top:40px}
+.edu-head .muted{font-size:16px;line-height:1.5;max-width:40ch;margin-top:8px}
+.ticket{position:relative;width:100%;justify-self:end}
+.tk-mask{overflow:hidden;padding:10px 16px 0;margin-bottom:-4px}
+.tk-paper{position:relative;padding:26px 24px 30px;background:var(--cream);font-family:var(--mono);font-size:13px;line-height:1.5;color:var(--ink);box-shadow:0 16px 36px rgba(42,36,32,.08),inset 0 -24px 24px -24px rgba(42,36,32,.18)}
+.tk-paper::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px;background:linear-gradient(-45deg,var(--cream) 5.66px,transparent 0),linear-gradient(45deg,var(--cream) 5.66px,transparent 0);background-size:16px 8px;background-position:left bottom;background-repeat:repeat-x}
+.tk-head{text-align:center;display:flex;flex-direction:column;gap:2px;font-size:12px;color:var(--muted)}
+.tk-head b{font-size:15px;font-weight:500;color:var(--ink);letter-spacing:.06em}
+.tk-sep{border:0;border-top:1px dashed #cbbcad;margin:16px 0}
+.tk-items{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.tk-row{display:flex;justify-content:space-between;gap:16px;align-items:baseline}
+.tk-row>span:last-child{flex:none;white-space:nowrap}
+.tk-item .tk-row>span:first-child{font-weight:500}
+.tk-item small{display:block;font-size:12px;color:var(--muted)}
+.tk-badge{display:inline-block;margin-top:5px;padding:2px 8px;border-radius:6px;line-height:1.5;background:var(--ink);color:var(--bg);font-size:11px}
+.tk-sum{display:flex;flex-direction:column;gap:4px;color:var(--muted)}
+.tk-total{margin:8px -6px 0;padding:8px 6px 2px;border-radius:0 0 4px 4px;border-top:2px solid var(--ink);font-size:16px;font-weight:500;color:var(--ink)}
+.tk-bars{height:44px;margin:20px auto 6px;width:78%;background:repeating-linear-gradient(90deg,var(--ink) 0 2px,transparent 2px 4px,var(--ink) 4px 5px,transparent 5px 8px,var(--ink) 8px 11px,transparent 11px 12px,var(--ink) 12px 13px,transparent 13px 16px,var(--ink) 16px 17px,transparent 17px 19px,var(--ink) 19px 22px,transparent 22px 24px)}
+.tk-foot{text-align:center;font-size:12px;color:var(--muted)}
+.tk-printer{position:relative;z-index:1;height:34px;border-radius:12px;background:var(--ink);box-shadow:0 14px 30px rgba(42,36,32,.18)}
+.tk-printer::before{content:"";position:absolute;left:12px;right:12px;top:6px;height:4px;border-radius:4px;background:#14110f}
+.tk-printer i{position:absolute;right:16px;bottom:9px;width:7px;height:7px;border-radius:50%;background:#6f9a5b}
+.tk-printer span{position:absolute;left:16px;bottom:7px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:#9d8f84}
+.ticket.printing .tk-printer i{background:var(--mustard);animation:blink .3s steps(2) infinite}
 
 /* contact */
 .contact{margin:110px 0 0;padding:72px 0 40px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:28px}
@@ -268,6 +310,9 @@ section{scroll-margin-top:24px}
 
   .hero{grid-template-columns:1fr;min-height:0;gap:8px}
   .hero-visual{height:62vh;min-height:400px}
+  .edu{grid-template-columns:1fr;gap:32px}
+  .edu-head{position:static}
+  .ticket{justify-self:stretch}
   .about{grid-template-columns:1fr;gap:56px;padding-top:80px}
   .exp{grid-template-columns:1fr;gap:32px;padding-top:90px}
   .exp-head{position:static}
@@ -331,7 +376,9 @@ section{scroll-margin-top:24px}
       <canvas id="hero-canvas" aria-label="Animación: productos desordenados que se acomodan solos en una góndola"></canvas>
       <img class="hero-fallback" src="assets/camila.png" alt="Camila Franco Rojas">
       <div class="hero-status" id="hero-status"><i></i><span>Ordenando surtido…</span></div>
-      <p class="hero-hint">Toca la góndola para desordenarla ↺</p>
+      <div class="hero-tag" id="hero-tag" aria-hidden="true"><div class="tag-code"><i></i></div><b class="tag-sku"></b><span class="tag-name"></span><span class="tag-meta"></span><span class="tag-ok">✓ Bien clasificado</span></div>
+      <div class="hero-oos" id="hero-oos" aria-hidden="true">Sin stock</div>
+      <p class="hero-hint" id="hero-hint">Toca la góndola para desordenarla ↺</p>
     </div>
   </section>
 
@@ -517,32 +564,53 @@ section{scroll-margin-top:24px}
 
   <!-- FORMACIÓN -->
   <section class="edu" id="formacion">
-    <div style="display:flex;flex-direction:column;gap:12px">
+    <div class="edu-head">
       <p class="eyebrow" data-reveal>Educación</p>
       <h2 class="h2" data-reveal>Formación</h2>
+      <p class="muted" data-reveal>Lo que estudié, desde el colegio hasta el MBA, en formato de ticket.</p>
     </div>
-    <div class="edu-grid">
-      <div class="card feature" data-reveal>
-        <p class="when muted">2025 – 2026 · UTEPSA</p>
-        <h3>MBA – Dirección de Empresas</h3>
-        <span class="pill">Formación concluida · Tesis en desarrollo</span>
+    <div class="ticket" id="ticket">
+      <div class="tk-mask">
+        <div class="tk-paper">
+          <div class="tk-head">
+            <b>CAMILA FRANCO R.</b>
+            <span>Formación académica</span>
+            <span>Santa Cruz de la Sierra · 2018–2026</span>
+          </div>
+          <hr class="tk-sep">
+          <ul class="tk-items">
+            <li class="tk-item">
+              <div class="tk-row"><span>MBA – Dirección de Empresas</span><span>2025–26</span></div>
+              <small>UTEPSA</small>
+              <span class="tk-badge">Formación concluida · Tesis en desarrollo</span>
+            </li>
+            <li class="tk-item">
+              <div class="tk-row"><span>Licenciatura en Administración General</span><span>2019–23</span></div>
+              <small>UTEPSA</small>
+            </li>
+            <li class="tk-item">
+              <div class="tk-row"><span>Power BI</span><span>21 h</span></div>
+              <small>Cenace – UPSA</small>
+            </li>
+            <li class="tk-item">
+              <div class="tk-row"><span>Taller de especialización en Microsoft Excel</span><span>36 h</span></div>
+              <small>Centro de capacitación Líder</small>
+            </li>
+            <li class="tk-item">
+              <div class="tk-row"><span>Bachiller en Humanidades</span><span>2018</span></div>
+              <small>Colegio Rio Nuevo</small>
+            </li>
+          </ul>
+          <hr class="tk-sep">
+          <div class="tk-sum">
+            <div class="tk-row"><span>Horas de cursos</span><span>57 h</span></div>
+            <div class="tk-row tk-total"><span>TOTAL</span><span>5 artículos</span></div>
+          </div>
+          <div class="tk-bars" aria-hidden="true"></div>
+          <p class="tk-foot">¡Gracias por su visita!</p>
+        </div>
       </div>
-      <div class="card" data-reveal>
-        <p class="when muted">2019 – 2023 · UTEPSA</p>
-        <h3>Licenciatura en Administración General</h3>
-      </div>
-      <div class="card" data-reveal>
-        <p class="when muted">Cenace – UPSA · 21 horas</p>
-        <h3>Power BI</h3>
-      </div>
-      <div class="card" data-reveal>
-        <p class="when muted">Centro de capacitación Líder · 36 horas</p>
-        <h3>Taller de especialización en Microsoft Excel</h3>
-      </div>
-      <div class="card" data-reveal>
-        <p class="when muted">2018 · Colegio Rio Nuevo</p>
-        <h3>Bachiller en Humanidades</h3>
-      </div>
+      <div class="tk-printer" aria-hidden="true"><span>CAJA 01</span><i></i></div>
     </div>
   </section>
 
@@ -628,7 +696,9 @@ function initHero() {
   const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
   const target = new THREE.Vector3(0, 0.25, 0);
   const tanHalf = Math.tan(THREE.MathUtils.degToRad(15));
+  let bw = 1, bh = 1;
   fit(box, renderer, camera, (w, h) => {
+    bw = w; bh = h;
     const a = w / h;
     const dist = Math.max(3.4 / tanHalf, 3.7 / (tanHalf * a)) + 1.2;
     camera.position.set(0, 1.1, dist);
@@ -717,6 +787,9 @@ function initHero() {
   ];
   const products = [];
   const rnd = (a, b) => a + Math.random() * (b - a);
+  const NAMES = ['Detergente en polvo 3 kg', 'Aceite vegetal 900 ml', 'Cereal de maíz 500 g', 'Atún en lata 170 g'];
+  const CATS = ['Limpieza', 'Aceites', 'Desayuno', 'Conservas'];
+  const classOf = n => (n % 10 < 5 ? 'Clase A · alta rotación' : n % 10 < 8 ? 'Clase B · rotación media' : 'Clase C · baja rotación');
   const chaosPos = () => ({ x: rnd(-3.3, 3.3), y: rnd(-1.8, 3.2), z: rnd(-0.4, 2.2), rx: rnd(-3, 3), ry: rnd(-3, 3), rz: rnd(-3, 3) });
 
   shelves.forEach((s, si) => {
@@ -739,13 +812,128 @@ function initHero() {
       const t = { x: -total / 2 + s.w / 2 + k * (s.w + gap), y: shelfYs[si] + s.h / 2 + 0.001, z: 0.12 };
       const st = REDUCE ? { ...t, rx: 0, ry: 0, rz: 0 } : chaosPos();
       rig.add(mesh);
-      products.push({ mesh, t, s: st, seed: Math.random() * 10 });
+      const p = {
+        mesh, t, s: st, seed: Math.random() * 10, si, h: s.h, w: s.w, lift: 0,
+        info: {
+          sku: 'SKU ' + (40100 + si * 1000 + k * 37),
+          name: NAMES[si],
+          meta: CATS[si] + ' · ' + classOf(k * 7 + si * 3) + ' · ' + (6 + ((k * 5 + si * 3) % 15)) + ' días de cobertura',
+        },
+      };
+      mesh.userData.p = p;
+      products.push(p);
     });
   });
 
   const chaos = { v: REDUCE ? 0 : 1 };
   let busy = false;
-  const setStatus = (txt, done) => { statusTxt.textContent = txt; statusEl.classList.toggle('done', !!done); };
+  const setStatus = (txt, state) => {
+    statusTxt.textContent = txt;
+    statusEl.classList.toggle('done', state === true);
+    statusEl.classList.toggle('alert', state === 'alert');
+  };
+
+  /* --- escáner al pasar el cursor --- */
+  const tag = document.getElementById('hero-tag');
+  const tagSku = tag.querySelector('.tag-sku'), tagName = tag.querySelector('.tag-name'), tagMeta = tag.querySelector('.tag-meta');
+  const oosTag = document.getElementById('hero-oos');
+  const ray = new THREE.Raycaster();
+  const ndc = new THREE.Vector2();
+  const meshes = products.map(p => p.mesh);
+  const v3 = new THREE.Vector3();
+  let pointerIn = false, hovered = null;
+  const canHover = matchMedia('(hover: hover)').matches;
+  if (canHover) document.getElementById('hero-hint').textContent = 'Pasa el cursor para escanear · clic para desordenar ↺';
+  canvas.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse') return;
+    const r = canvas.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    pointerIn = true;
+  });
+  canvas.addEventListener('pointerleave', () => { pointerIn = false; setHover(null); });
+
+  function setHover(p) {
+    if (p === hovered) return;
+    if (hovered) {
+      gsap.to(hovered, { lift: 0, duration: 0.3, ease: 'power2.out' });
+      gsap.to(hovered.mesh.material, { emissiveIntensity: 0, duration: 0.3 });
+    }
+    hovered = p;
+    tag.classList.remove('on');
+    if (!p) return;
+    tagSku.textContent = p.info.sku;
+    tagName.textContent = p.info.name;
+    tagMeta.textContent = p.info.meta;
+    void tag.offsetWidth; // reinicia la animación del láser
+    tag.classList.add('on');
+    if (!REDUCE) gsap.to(p, { lift: 0.22, duration: 0.35, ease: 'back.out(2)' });
+    gsap.to(p.mesh.material, { emissiveIntensity: 0.16, duration: 0.2 });
+  }
+  // proyecta un punto local de la góndola a píxeles del contenedor
+  function toScreen(x, y, z, el, minX = 0) {
+    v3.set(x, y, z);
+    rig.localToWorld(v3);
+    v3.project(camera);
+    const px = Math.min(Math.max((v3.x + 1) / 2 * bw, minX), bw - minX);
+    el.style.left = px + 'px';
+    el.style.top = (1 - v3.y) / 2 * bh + 'px';
+  }
+
+  /* --- quiebre de stock y reposición --- */
+  const mGap = new THREE.MeshBasicMaterial({ color: 0xc8452f, transparent: true, opacity: 0, depthWrite: false });
+  const mGapFloor = mGap.clone();
+  const gapStrip = new THREE.Mesh(new THREE.BoxGeometry(1, 0.14, 0.04), mGap);
+  const gapFloor = new THREE.Mesh(new THREE.PlaneGeometry(1, D - 0.2), mGapFloor);
+  gapFloor.rotation.x = -Math.PI / 2;
+  gapStrip.visible = gapFloor.visible = false;
+  rig.add(gapStrip, gapFloor);
+  let rtl = null, rp = null, rTimer = 0, heroVisible = false;
+  new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }).observe(box);
+
+  function scheduleRestock(ms = rnd(15000, 25000)) {
+    clearTimeout(rTimer);
+    if (!REDUCE) rTimer = setTimeout(restock, ms);
+  }
+  function restock() {
+    if (busy || !heroVisible || document.hidden) return scheduleRestock(3000);
+    const pool = products.filter(p => p !== hovered);
+    const p = rp = pool[Math.floor(Math.random() * pool.length)];
+    const { t } = p, sy = shelfYs[p.si];
+    gapStrip.scale.x = p.w + 0.05;
+    gapStrip.position.set(t.x, sy - 0.05, D / 2 - 0.01);
+    gapFloor.scale.x = p.w + 0.05;
+    gapFloor.position.set(t.x, sy + 0.006, 0.03);
+    rtl = gsap.timeline({ onComplete: () => { rtl = rp = null; setStatus('Planograma listo', true); scheduleRestock(); } });
+    rtl.call(() => setStatus('Quiebre de stock · ' + p.info.sku, 'alert'))
+      // alguien se lo lleva
+      .to(p.s, { z: t.z + 1.3, y: t.y + 0.25, duration: 0.55, ease: 'power2.in' }, 0)
+      .to(p.mesh.scale, { x: 0.01, y: 0.01, z: 0.01, duration: 0.55, ease: 'power2.in' }, 0)
+      // el hueco queda marcado
+      .call(() => { gapStrip.visible = gapFloor.visible = true; oosTag.classList.add('on'); }, null, 0.5)
+      .fromTo([mGap, mGapFloor], { opacity: 0 }, { opacity: i => [0.95, 0.25][i], duration: 0.3, yoyo: true, repeat: 5, ease: 'sine.inOut' }, 0.5)
+      // reposición
+      .call(() => { setStatus('Reponiendo…', false); oosTag.classList.remove('on'); }, null, 2.2)
+      .set(p.s, { z: t.z + 1.5, y: t.y + 0.45, ry: -0.5 }, 2.3)
+      .call(() => { gapStrip.visible = gapFloor.visible = false; }, null, 2.3)
+      .to(p.mesh.scale, { x: 1, y: 1, z: 1, duration: 0.45, ease: 'power2.out' }, 2.3)
+      .to(p.s, { y: t.y, duration: 0.7, ease: 'power2.out' }, 2.3)
+      .to(p.s, { z: t.z, ry: 0, duration: 0.8, ease: 'back.out(1.2)' }, 2.3)
+      .fromTo(p.mesh.material, { emissiveIntensity: 0 }, { emissiveIntensity: 0.5, duration: 0.25, yoyo: true, repeat: 1 }, 3.05);
+  }
+  function stopRestock() {
+    clearTimeout(rTimer);
+    if (rtl) { rtl.kill(); rtl = null; }
+    if (rp) {
+      gsap.killTweensOf([rp.s, rp.mesh.scale, rp.mesh.material]);
+      rp.mesh.scale.set(1, 1, 1);
+      rp.mesh.material.emissiveIntensity = 0;
+      rp = null;
+    }
+    gsap.killTweensOf([mGap, mGapFloor]);
+    mGap.opacity = mGapFloor.opacity = 0;
+    gapStrip.visible = gapFloor.visible = false;
+    oosTag.classList.remove('on');
+  }
 
   function scan() {
     products.forEach(p => {
@@ -758,7 +946,7 @@ function initHero() {
   function sortAll(delay = 0) {
     busy = true;
     setStatus('Ordenando surtido…', false);
-    const tl = gsap.timeline({ delay, onComplete: () => { busy = false; setStatus('Planograma listo', true); scan(); } });
+    const tl = gsap.timeline({ delay, onComplete: () => { busy = false; setStatus('Planograma listo', true); scan(); scheduleRestock(rnd(8000, 12000)); } });
     tl.to(chaos, { v: 0, duration: 0.9, ease: 'power2.out' }, 0);
     products.forEach((p, k) => {
       tl.to(p.s, { x: p.t.x, y: p.t.y, z: p.t.z, rx: 0, ry: 0, rz: 0, duration: 1.05, ease: 'power3.inOut' }, 0.1 + k * 0.03);
@@ -766,6 +954,8 @@ function initHero() {
   }
   function shuffle() {
     if (busy || REDUCE) return;
+    stopRestock();
+    setHover(null);
     busy = true;
     setStatus('Datos desordenados', false);
     gsap.to(chaos, { v: 1, duration: 0.6 });
@@ -785,9 +975,21 @@ function initHero() {
     rig.rotation.x = rotX;
     for (const p of products) {
       const c = chaos.v;
-      p.mesh.position.set(p.s.x, p.s.y + Math.sin(t * 1.4 + p.seed) * 0.15 * c, p.s.z);
+      p.mesh.position.set(p.s.x, p.s.y + Math.sin(t * 1.4 + p.seed) * 0.15 * c, p.s.z + p.lift);
       p.mesh.rotation.set(p.s.rx + Math.sin(t * 0.7 + p.seed) * 0.4 * c, p.s.ry + t * 0.3 * c, p.s.rz);
     }
+    rig.updateMatrixWorld();
+    if (pointerIn && canHover) {
+      let hit = null;
+      if (!busy && chaos.v < 0.02) {
+        ray.setFromCamera(ndc, camera);
+        const p = ray.intersectObjects(meshes, false)[0]?.object.userData.p;
+        if (p && p !== rp) hit = p;
+      }
+      setHover(hit);
+    }
+    if (hovered) toScreen(hovered.t.x, hovered.s.y + hovered.h / 2, hovered.s.z + hovered.lift, tag, 104);
+    if (rp) toScreen(rp.t.x, rp.t.y + rp.h * 0.2, rp.t.z, oosTag, 50);
     renderer.render(scene, camera);
   });
 }
@@ -1180,6 +1382,7 @@ function initMotion() {
   });
   gsap.to('#timeline-fill', { height: 'calc(100% - 16px)', ease: 'none',
     scrollTrigger: { trigger: '#timeline', start: 'top 70%', end: 'bottom 70%', scrub: true } });
+  initCart();
   if (matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('[data-magnetic]').forEach(el => {
       el.addEventListener('pointermove', e => {
@@ -1189,6 +1392,49 @@ function initMotion() {
       el.addEventListener('pointerleave', () => gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, .4)' }));
     });
   }
+}
+
+/* carrito que recorre la trayectoria y "recoge" cada puesto */
+function initCart() {
+  const tl = document.getElementById('timeline');
+  const jobs = [...tl.querySelectorAll('.job')];
+  const cart = document.createElement('div');
+  cart.className = 'tl-cart';
+  cart.setAttribute('aria-hidden', 'true');
+  cart.innerHTML = `<svg viewBox="0 0 34 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect class="box" x="11" y="5" width="6" height="6" rx="1" fill="#d4a24c" stroke="none"/>
+    <rect class="box" x="18" y="3" width="6" height="8" rx="1" fill="#8a9a7b" stroke="none"/>
+    <rect class="box" x="24.5" y="6" width="5" height="5" rx="1" fill="#a4482f" stroke="none"/>
+    <path d="M1 3h5l3.6 15h17.6L31 9H8" fill="#fffaf3"/>
+    <path d="M9.6 18l-1 4h19"/>
+    <g class="wheel"><circle cx="11" cy="26" r="2.6" fill="#fffaf3"/><path d="M11 23.4v5.2"/></g>
+    <g class="wheel"><circle cx="25" cy="26" r="2.6" fill="#fffaf3"/><path d="M25 23.4v5.2"/></g>
+  </svg><b>0</b>`;
+  tl.appendChild(cart);
+  const wheels = cart.querySelectorAll('.wheel');
+  const boxes = cart.querySelectorAll('.box');
+  const badge = cart.querySelector('b');
+  const setY = gsap.quickSetter(cart, 'y', 'px');
+  let picked = 0;
+
+  function update(self) {
+    const y = 8 + self.progress * (tl.offsetHeight - 16); // misma punta que la línea roja
+    setY(y - 22);
+    wheels.forEach(w => { w.style.transform = `rotate(${y * 22}deg)`; });
+    let n = 0;
+    jobs.forEach(job => {
+      const hit = y >= job.offsetTop + 14;
+      if (hit) n++;
+      job.classList.toggle('picked', hit);
+    });
+    if (n !== picked) {
+      picked = n;
+      badge.textContent = n;
+      badge.classList.toggle('on', n > 0);
+      boxes.forEach((b, i) => b.classList.toggle('on', n > i * 2));
+    }
+  }
+  ST.create({ trigger: tl, start: 'top 70%', end: 'bottom 70%', onUpdate: update, onRefresh: update });
 }
 
 function safe(fn, onFail) {
@@ -1230,7 +1476,28 @@ function initFlow() {
   new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !running) run(); }).observe(flow);
 }
 
+/* ======================================================
+   Ticket de formación: se imprime al entrar en pantalla
+   ====================================================== */
+function initTicket() {
+  const ticket = document.getElementById('ticket');
+  if (!ticket || !gsap || !ST || REDUCE) return;
+  const paper = ticket.querySelector('.tk-paper');
+  const total = ticket.querySelector('.tk-total');
+  gsap.set(paper, { yPercent: 101 });
+  const tl = gsap.timeline({
+    paused: true,
+    onStart: () => ticket.classList.add('printing'),
+    onComplete: () => ticket.classList.remove('printing'),
+  });
+  tl.to(paper, { yPercent: 0, duration: 1.4, ease: 'steps(20)' })
+    .fromTo(total, { backgroundColor: 'rgba(212,162,76,0)' }, { backgroundColor: 'rgba(212,162,76,.35)', duration: 0.25, yoyo: true, repeat: 1 })
+    .to(paper, { rotation: -1.2, transformOrigin: '50% 100%', duration: 0.9, ease: 'elastic.out(1, .35)' }, '-=0.2');
+  ST.create({ trigger: ticket, start: 'top 85%', once: true, onEnter: () => tl.play() });
+}
+
 safe(initFlow);
+safe(initTicket);
 initMotion();
 if (hasGL && gsap) {
   safe(initHero, () => document.getElementById('hero-visual').classList.add('no-webgl'));
