@@ -67,15 +67,39 @@ section{scroll-margin-top:24px}
 .btn-line:hover{background:var(--ink);color:var(--bg)}
 .chip{font-size:14px;padding:6px 14px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
 
-/* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:24px;align-items:center;min-height:calc(100vh - 90px);padding-bottom:40px}
-.hero-text{display:flex;flex-direction:column;gap:26px}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(60px,9vw,118px);line-height:.92;letter-spacing:-.015em}
+/* hero: composición editorial (titular + góndola) */
+.hero{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);grid-template-rows:1fr auto auto;grid-template-areas:"head visual" "body visual" "foot foot";column-gap:40px;min-height:calc(100vh - 90px);padding-bottom:28px}
+.hero-head{grid-area:head;align-self:end;display:flex;flex-direction:column;gap:22px;padding-top:24px}
+.hero-body{grid-area:body;display:flex;flex-direction:column;gap:26px;padding-top:28px}
+.hero-visual{grid-area:visual;align-self:center}
+.hero .kicker{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.hero .kicker::before{content:"";width:28px;height:1px;background:var(--accent)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.9vw,74px);line-height:.98;letter-spacing:-.018em;text-wrap:balance}
+.hero h1 .ln{display:block;overflow:hidden;padding:0 .12em .14em 0;margin-bottom:-.14em}
+.hero h1 .ln>span{display:block}
+.hero h1 .ln+.ln{margin-top:.06em}
 .hero h1 em{color:var(--accent)}
-.hero .lead{font-size:20px;line-height:1.5;max-width:32ch;text-wrap:pretty}
-.hero .tags{display:flex;gap:8px;flex-wrap:wrap}
-.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
-.hero-visual{position:relative;height:min(80vh,720px);min-height:460px}
+.hero h1 .hl{position:relative;display:inline-block;white-space:nowrap}
+.hero h1 .spark{position:absolute;left:.02em;bottom:-.06em;width:calc(100% - .3em);height:.2em;overflow:visible;pointer-events:none}
+.hero h1 .spark path{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.hero h1 .spark circle{fill:var(--accent)}
+.hero-intro{max-width:46ch;font-size:17px;line-height:1.6;color:var(--muted);text-wrap:pretty}
+.hero-name{display:block;margin-bottom:10px;font-family:var(--serif);font-size:clamp(26px,2.6vw,34px);line-height:1.1;color:var(--ink)}
+.hero-name b{font-weight:400;font-style:italic;color:var(--accent)}
+.hero .ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero .btn{cursor:pointer}
+.hero .btn .arr{display:inline-block;transition:transform .3s cubic-bezier(.3,1.4,.6,1)}
+.hero .btn:hover .arr{transform:translateY(3px)}
+.hero .btn-line:hover .arr{transform:translateX(3px)}
+.hero .btn:focus-visible,.hero-link:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.hero-link{font-size:14px;font-weight:500;color:var(--muted);padding:8px 4px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.hero-link:hover{color:var(--ink);border-color:var(--ink)}
+.hero-foot{grid-area:foot;display:flex;justify-content:space-between;align-items:center;gap:12px 28px;flex-wrap:wrap;margin-top:28px;padding-top:16px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted)}
+.hero-foot ul{counter-reset:hf;display:flex;gap:10px 28px;flex-wrap:wrap;margin:0;padding:0;list-style:none}
+.hero-foot li::before{content:"0" counter(hf) " ";counter-increment:hf;color:var(--accent)}
+.hero-foot a{color:var(--muted)}
+.hero-foot a:hover{color:var(--accent)}
+.hero-visual{position:relative;height:min(76vh,700px);min-height:460px}
 .hero-visual canvas{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:pointer;touch-action:pan-y}
 .hero-status{position:absolute;top:8px;left:8px;display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:var(--cream);border:1px solid var(--line);box-shadow:0 6px 20px rgba(42,36,32,.06);pointer-events:none}
 .hero-status i{width:8px;height:8px;border-radius:50%;background:var(--mustard);transition:background .3s}
@@ -283,6 +307,7 @@ section{scroll-margin-top:24px}
 .ambient i:nth-child(1){left:-25vmax;top:-20vmax;background:radial-gradient(circle,rgba(233,201,180,.9),rgba(233,201,180,0) 62%)}
 .ambient i:nth-child(2){right:-30vmax;top:20vh;background:radial-gradient(circle,rgba(212,162,76,.35),rgba(212,162,76,0) 60%);animation-duration:46s;animation-delay:-12s}
 .ambient i:nth-child(3){left:10vw;bottom:-40vmax;background:radial-gradient(circle,rgba(164,72,47,.22),rgba(164,72,47,0) 60%);animation-duration:52s;animation-delay:-24s}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(6vw,8vh,0) scale(1.15)}}
 @media (prefers-reduced-motion:reduce){.ambient i{animation:none}}
 
@@ -334,8 +359,11 @@ section{scroll-margin-top:24px}
   .fnode .dot{top:62px;left:26px}
   @keyframes flowdot{0%{opacity:1;top:62px}100%{opacity:1;top:88px}}
 
-  .hero{grid-template-columns:1fr;min-height:0;gap:8px}
-  .hero-visual{height:62vh;min-height:400px}
+  .hero{grid-template-columns:minmax(0,1fr);grid-template-rows:auto;grid-template-areas:"head" "visual" "body" "foot";min-height:0}
+  .hero-head{padding-top:8px}
+  .hero-visual{height:56vh;min-height:380px;max-height:520px;margin-top:8px}
+  .hero-body{padding-top:20px;gap:24px}
+  .hero-foot .cue{display:none}
   .edu{grid-template-columns:1fr;gap:32px}
   .edu-head{position:static}
   .ticket{justify-self:stretch}
@@ -385,22 +413,21 @@ section{scroll-margin-top:24px}
     </nav>
   </header>
 
-  <!-- HERO: planograma vivo -->
-  <section class="hero" id="inicio">
-    <div class="hero-text">
-      <p class="eyebrow" data-intro>Santa Cruz de la Sierra, Bolivia</p>
-      <h1 data-intro>Camila<br><em>Franco Rojas</em></h1>
-      <p class="lead" data-intro>Analista de datos maestros y planogramas en Makro Parque. Convierto el catálogo en decisiones de surtido, exhibición y reposición, y automatizo con IA y n8n lo que antes se hacía a mano.</p>
-      <div class="tags" data-intro>
-        <span class="chip">Datos maestros</span>
-        <span class="chip">Planogramas</span>
-        <span class="chip">Category Management</span>
-        <span class="chip">Compras</span>
-        <span class="chip">IA y automatización</span>
-      </div>
+  <!-- HERO: titular editorial + planograma vivo -->
+  <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="hero-head">
+      <p class="kicker" data-intro>Administración · Datos · Procesos</p>
+      <h1 id="hero-title">
+        <span class="ln"><span>Los datos cuentan <span class="hl">historias.<svg class="spark" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="140" d="M1 17 L18 13 L31 15 L47 8 L61 11 L77 5 L98 2"/></svg></span></span></span>
+        <span class="ln"><span><em>Las buenas decisiones cambian resultados.</em></span></span>
+      </h1>
+    </div>
+    <div class="hero-body">
+      <p class="hero-intro" data-intro><span class="hero-name">Soy <b>Camila Franco</b>.</span>Profesional en Administración General, con experiencia en gestión de información, procesos administrativos y análisis de datos. Me interesa transformar información en decisiones y oportunidades de mejora.</p>
       <div class="ctas" data-intro>
-        <a class="btn btn-dark" data-magnetic href="https://www.linkedin.com/in/camila-franco-r-323008225/" target="_blank" rel="noopener">Ver perfil en LinkedIn</a>
-        <a class="btn btn-line" data-magnetic href="#contacto">Contactar</a>
+        <a class="btn btn-dark" data-magnetic href="#experiencia">Explorar mi experiencia <span class="arr" aria-hidden="true">↓</span></a>
+        <a class="btn btn-line" data-magnetic href="#contacto">Contactar conmigo <span class="arr" aria-hidden="true">→</span></a>
+        <a class="hero-link" href="https://www.linkedin.com/in/camila-franco-r-323008225/" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
     </div>
     <div class="hero-visual" id="hero-visual">
@@ -410,6 +437,14 @@ section{scroll-margin-top:24px}
       <div class="hero-tag" id="hero-tag" aria-hidden="true"><div class="tag-code"><i></i></div><b class="tag-sku"></b><span class="tag-name"></span><span class="tag-meta"></span><span class="tag-ok">✓ Bien clasificado</span></div>
       <div class="hero-oos" id="hero-oos" aria-hidden="true">Sin stock</div>
       <p class="hero-hint" id="hero-hint">Toca la góndola para desordenarla ↺</p>
+    </div>
+    <div class="hero-foot">
+      <ul>
+        <li>MBA en Dirección de Empresas</li>
+        <li>Datos maestros y planogramas</li>
+        <li>Santa Cruz de la Sierra, Bolivia</li>
+      </ul>
+      <a class="cue" href="#sobre-mi">Desplázate ↓</a>
     </div>
   </section>
 
@@ -1410,8 +1445,13 @@ function initSkills() {
    ====================================================== */
 function initMotion() {
   if (!gsap || REDUCE) return;
-  gsap.from('[data-intro]', { y: 36, opacity: 0, duration: 1, ease: 'power3.out', stagger: 0.1, delay: 0.1 });
-  gsap.from('#hero-visual', { opacity: 0, scale: 0.96, duration: 1.4, ease: 'power2.out', delay: 0.2 });
+  const intro = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.1 });
+  intro.from('.hero .kicker', { y: 16, opacity: 0, duration: 0.7 })
+    .from('.hero h1 .ln > span', { yPercent: 110, duration: 1.1, ease: 'power4.out', stagger: 0.16 }, 0.1)
+    .from('.hero h1 .spark path', { strokeDasharray: 140, strokeDashoffset: 140, duration: 1.2, ease: 'power2.inOut' }, 0.9)
+    .from('.hero-body [data-intro]', { y: 24, opacity: 0, duration: 0.9, stagger: 0.12 }, 0.6)
+    .from('#hero-visual', { opacity: 0, scale: 0.96, duration: 1.4, ease: 'power2.out' }, 0.2)
+    .from('.hero-foot', { opacity: 0, duration: 0.8 }, 1.1);
   if (!ST) return;
   gsap.utils.toArray('[data-reveal]').forEach(el => {
     gsap.from(el, { y: 40, opacity: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } });
